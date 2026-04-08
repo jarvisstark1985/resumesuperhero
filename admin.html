@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume SuperHero — OPS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config={theme:{extend:{colors:{dark:{900:'#060911',800:'#0a0e1a',700:'#0f172a',600:'#1e293b',500:'#334155',400:'#475569',300:'#64748b',200:'#94a3b8',100:'#cbd5e1',50:'#e2e8f0'},brand:{blue:'#3b82f6',indigo:'#6366f1',violet:'#8b5cf6',amber:'#f59e0b',emerald:'#10b981',rose:'#f43f5e'}},fontFamily:{sans:['Inter','sans-serif'],heading:['Space Grotesk','sans-serif'],mono:['JetBrains Mono','monospace']}}}}
+    </script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:#060911;color:#cbd5e1;overflow:hidden;height:100vh;font-size:11px}
+        h1,h2,h3,h4,h5,h6{font-family:'Space Grotesk',sans-serif}
+        ::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:#0a0e1a}::-webkit-scrollbar-thumb{background:#1e293b;border-radius:2px}::-webkit-scrollbar-thumb:hover{background:#334155}
+
+        .login-container{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#060911}
+        .login-box{background:rgba(15,23,42,.8);border:1px solid rgba(51,65,85,.4);border-radius:8px;padding:28px;width:340px}
+        .input{width:100%;background:rgba(10,14,26,.8);border:1px solid rgba(30,41,59,.8);color:#e2e8f0;padding:7px 10px;border-radius:4px;font-size:11px;font-family:'Inter',sans-serif;transition:all .15s;outline:none}
+        .input:focus{border-color:#6366f1;box-shadow:0 0 0 2px rgba(99,102,241,.1)}
+        .btn{padding:7px 14px;border-radius:4px;font-weight:600;font-size:10px;border:none;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:4px;font-family:'Inter',sans-serif}
+        .btn-primary{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff}.btn-primary:hover{opacity:.9}
+        .btn-ghost{background:rgba(30,41,59,.4);color:#94a3b8;border:1px solid rgba(30,41,59,.8)}.btn-ghost:hover{background:rgba(99,102,241,.08);color:#e2e8f0;border-color:rgba(99,102,241,.2)}
+
+        .ops-header{height:32px;display:flex;align-items:center;padding:0 10px;background:rgba(10,14,26,.95);border-bottom:1px solid rgba(30,41,59,.6);gap:10px;flex-shrink:0}
+        .ops-tabs{height:26px;display:flex;align-items:stretch;background:rgba(10,14,26,.7);border-bottom:1px solid rgba(30,41,59,.5);padding:0 8px;flex-shrink:0;overflow-x:auto}
+        .ops-tab{padding:0 10px;font-size:9px;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;display:flex;align-items:center;border-bottom:1.5px solid transparent;transition:all .15s;white-space:nowrap}
+        .ops-tab:hover{color:#94a3b8}.ops-tab.active{color:#a5b4fc;border-bottom-color:#6366f1}
+        .ops-content{flex:1;overflow-y:auto;padding:8px;background:#060911}
+
+        .section{display:none;animation:fadeIn .2s ease}.section.active{display:block}
+        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+        .panel{background:rgba(15,23,42,.4);border:1px solid rgba(30,41,59,.5);border-radius:4px;overflow:hidden}
+        .panel-head{padding:5px 8px;font-size:8px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid rgba(30,41,59,.4);display:flex;align-items:center;justify-content:space-between;background:rgba(15,23,42,.6)}
+        .panel-body{padding:8px}
+        .panel-link{font-size:8px;color:#6366f1;cursor:pointer;font-weight:500}.panel-link:hover{color:#818cf8}
+
+        .kpi{display:inline-flex;align-items:center;gap:4px}
+        .kpi-label{color:#475569;font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+        .kpi-val{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px}
+
+        table{width:100%;border-collapse:collapse}
+        th{text-align:left;padding:4px 6px;font-size:8px;font-weight:700;color:#334155;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid rgba(30,41,59,.5)}
+        td{padding:4px 6px;font-size:10px;border-bottom:1px solid rgba(30,41,59,.3);color:#94a3b8}
+        tr:hover td{background:rgba(99,102,241,.02)}
+
+        .badge{display:inline-flex;align-items:center;padding:1px 6px;border-radius:10px;font-size:8px;font-weight:600}
+        .b-green{background:rgba(16,185,129,.12);color:#34d399}.b-amber{background:rgba(245,158,11,.12);color:#fbbf24}
+        .b-rose{background:rgba(244,63,94,.12);color:#fb7185}.b-blue{background:rgba(59,130,246,.12);color:#60a5fa}
+        .b-gray{background:rgba(51,65,85,.4);color:#94a3b8}.b-violet{background:rgba(139,92,246,.12);color:#a78bfa}
+
+        .pbar{height:4px;background:rgba(30,41,59,.5);border-radius:2px;overflow:hidden}.pbar .fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#3b82f6,#6366f1)}
+
+        .stat-block{text-align:center;padding:6px 4px}
+        .stat-block .val{font-family:'Space Grotesk';font-weight:700;font-size:16px;color:#e2e8f0}
+        .stat-block .lbl{font-size:7px;color:#475569;text-transform:uppercase;letter-spacing:.08em;margin-top:1px;font-weight:600}
+
+        .goal-strip{display:flex;align-items:center;gap:10px;padding:5px 8px;background:rgba(15,23,42,.5);border:1px solid rgba(30,41,59,.4);border-radius:4px;margin-bottom:6px}
+        .dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:3px}
+        .form-card{background:rgba(15,23,42,.5);border:1px solid rgba(30,41,59,.5);border-radius:4px;padding:10px;margin-bottom:6px}
+    </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen" class="login-container">
+    <div class="login-box">
+        <div class="text-center mb-5">
+            <div class="inline-flex items-center gap-2 mb-2">
+                <div style="width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);display:flex;align-items:center;justify-content:center"><svg width="12" height="12" fill="none" stroke="#fff" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                <span class="text-sm font-bold text-dark-50 font-heading">RSH OPS</span>
+            </div>
+            <p class="text-[10px] text-dark-200">Resume SuperHero — Operations Console</p>
+        </div>
+        <div class="space-y-3">
+            <div><label class="block text-[9px] font-semibold text-dark-200 mb-1 uppercase tracking-wider">Username</label><input class="input" id="loginUser" placeholder="admin" autocomplete="off"></div>
+            <div><label class="block text-[9px] font-semibold text-dark-200 mb-1 uppercase tracking-wider">Password</label><input class="input" id="loginPass" type="password" placeholder="********" autocomplete="off" onkeydown="if(event.key==='Enter')doLogin()"></div>
+            <button class="btn btn-primary w-full justify-center" onclick="doLogin()">Sign In</button>
+            <p class="text-[10px] text-center text-brand-rose hidden" id="loginError">Invalid credentials</p>
+        </div>
+    </div>
+</div>
+
+<!-- OPS CONSOLE -->
+<div id="adminApp" class="flex flex-col h-screen" style="display:none">
+    <!-- HEADER -->
+    <div class="ops-header">
+        <div class="flex items-center gap-2 flex-shrink-0">
+            <div style="width:18px;height:18px;border-radius:4px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);display:flex;align-items:center;justify-content:center"><svg width="9" height="9" fill="none" stroke="#fff" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+            <span style="font-size:10px;font-weight:700;color:#e2e8f0;font-family:'Space Grotesk'">RSH OPS</span>
+        </div>
+        <div style="width:1px;height:14px;background:rgba(30,41,59,.6)"></div>
+        <div class="flex items-center gap-4 flex-1 overflow-x-auto" style="min-width:0">
+            <div class="kpi"><span class="kpi-label">MRR</span><span class="kpi-val text-brand-emerald" id="hMRR">$0</span></div>
+            <div class="kpi"><span class="kpi-label">Users</span><span class="kpi-val text-dark-50" id="hUsers">0</span></div>
+            <div class="kpi"><span class="kpi-label">Paid</span><span class="kpi-val text-brand-indigo" id="hPaid">0</span></div>
+            <div class="kpi"><span class="kpi-label">Churn</span><span class="kpi-val text-brand-amber" id="hChurn">0%</span></div>
+            <div class="kpi"><span class="kpi-label">Tickets</span><span class="kpi-val text-brand-rose" id="hTickets">0</span></div>
+            <div class="kpi"><span class="kpi-label">Goal</span><span class="kpi-val text-brand-violet" id="hGoal">0%</span></div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+            <span class="badge b-green" style="font-size:7px">LIVE</span>
+            <span style="font-size:9px;color:#334155;font-family:'JetBrains Mono'" id="headerDate"></span>
+            <div style="width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#f43f5e,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;font-weight:700;cursor:pointer" onclick="doLogout()" title="Sign Out">JA</div>
+        </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="ops-tabs" id="adminNav">
+        <div class="ops-tab active" data-s="overview" onclick="navTo('overview')">Overview</div>
+        <div class="ops-tab" data-s="revenue" onclick="navTo('revenue')">Revenue</div>
+        <div class="ops-tab" data-s="users" onclick="navTo('users')">Users</div>
+        <div class="ops-tab" data-s="analytics" onclick="navTo('analytics')">Analytics</div>
+        <div class="ops-tab" data-s="content" onclick="navTo('content')">Content</div>
+        <div class="ops-tab" data-s="support" onclick="navTo('support')">Support</div>
+        <div class="ops-tab" data-s="marketing" onclick="navTo('marketing')">Marketing</div>
+        <div class="ops-tab" data-s="settings" onclick="navTo('settings')">Config</div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="ops-content">
+
+<!-- OVERVIEW -->
+<div id="s-overview" class="section active">
+    <div class="goal-strip">
+        <span style="font-size:8px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap">$10K GOAL</span>
+        <div class="flex-1"><div class="pbar" style="height:6px"><div class="fill" id="goalBar" style="width:0%"></div></div></div>
+        <span class="font-heading font-bold text-dark-50" id="totalRevenue">$0</span>
+        <span style="color:#334155">/ $10,000</span>
+        <span style="color:#f59e0b;font-weight:600;font-size:10px" id="daysLeftBadge">--d left</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+        <div>
+            <div class="panel mb-1.5"><div class="panel-head"><span>Revenue Breakdown</span><span class="panel-link" onclick="navTo('revenue')">Details →</span></div><div class="panel-body" id="revBreakdownPanel"></div></div>
+            <div class="panel"><div class="panel-head"><span>Recent Transactions</span></div><div class="panel-body"><table><thead><tr><th>User</th><th>Plan</th><th>Amount</th></tr></thead><tbody id="miniTransTable"></tbody></table></div></div>
+        </div>
+        <div>
+            <div class="panel mb-1.5"><div class="panel-head"><span>User Status</span><span class="panel-link" onclick="navTo('users')">All Users →</span></div><div class="panel-body"><div style="display:flex;gap:6px;margin-bottom:6px" id="userStatusBlocks"></div><div id="userMetrics"></div></div></div>
+            <div class="panel"><div class="panel-head"><span>Conversion Funnel</span><span class="panel-link" onclick="navTo('analytics')">Analytics →</span></div><div class="panel-body" id="funnelPanel"></div></div>
+        </div>
+        <div>
+            <div class="panel mb-1.5"><div class="panel-head"><span>Support Queue</span><span class="panel-link" onclick="navTo('support')">Tickets →</span></div><div class="panel-body" id="miniTicketPanel"></div></div>
+            <div class="panel mb-1.5"><div class="panel-head"><span>Active Campaigns</span><span class="panel-link" onclick="navTo('marketing')">Marketing →</span></div><div class="panel-body" id="miniCampaignPanel"></div></div>
+            <div class="panel"><div class="panel-head"><span>Activity Log</span></div><div class="panel-body" id="activityPanel"></div></div>
+        </div>
+    </div>
+</div>
+
+<!-- REVENUE -->
+<div id="s-revenue" class="section">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:6px">
+        <div class="panel"><div class="panel-body stat-block"><div class="val" id="revTotal">$0</div><div class="lbl">Total Revenue</div></div></div>
+        <div class="panel"><div class="panel-body stat-block"><div class="val" id="revMonth">$0</div><div class="lbl">This Month</div></div></div>
+        <div class="panel"><div class="panel-body stat-block"><div class="val" id="revARPU">$0</div><div class="lbl">ARPU</div></div></div>
+        <div class="panel"><div class="panel-body stat-block"><div class="val" id="revLTV">$0</div><div class="lbl">LTV Estimate</div></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:6px;margin-bottom:6px">
+        <div class="panel"><div class="panel-head"><span>Revenue (14d)</span></div><div class="panel-body"><canvas id="revenueChart" height="160"></canvas></div></div>
+        <div class="panel"><div class="panel-head"><span>Plan Distribution</span></div><div class="panel-body"><canvas id="revBreakdownChart" height="160"></canvas></div></div>
+    </div>
+    <div class="panel"><div class="panel-head"><span>All Transactions</span></div><div class="panel-body" style="padding:0"><table><thead><tr><th>Date</th><th>Customer</th><th>Plan</th><th>Amount</th><th>Status</th></tr></thead><tbody id="transTable"></tbody></table></div></div>
+</div>
+
+<!-- USERS -->
+<div id="s-users" class="section">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <input class="input" style="width:200px;font-size:10px" id="userSearch" placeholder="Search users..." oninput="filterUsers()">
+        <div class="flex gap-1" id="userTabs">
+            <div class="ops-tab active" style="font-size:8px;padding:3px 8px;height:auto" onclick="filterUserTab('all',this)">All <span class="badge b-gray ml-1" id="countAll">0</span></div>
+            <div class="ops-tab" style="font-size:8px;padding:3px 8px;height:auto" onclick="filterUserTab('active',this)">Active <span class="badge b-green ml-1" id="countActive">0</span></div>
+            <div class="ops-tab" style="font-size:8px;padding:3px 8px;height:auto" onclick="filterUserTab('trial',this)">Trial <span class="badge b-amber ml-1" id="countTrial">0</span></div>
+            <div class="ops-tab" style="font-size:8px;padding:3px 8px;height:auto" onclick="filterUserTab('churned',this)">Churned <span class="badge b-rose ml-1" id="countChurned">0</span></div>
+        </div>
+        <div class="flex-1"></div>
+        <button class="btn btn-ghost" onclick="exportUsers()">Export CSV</button>
+    </div>
+    <div class="panel"><div class="panel-body" style="padding:0"><table><thead><tr><th>User</th><th>Email</th><th>Plan</th><th>Status</th><th>Joined</th><th>Resumes</th><th>Interviews</th><th>Action</th></tr></thead><tbody id="userTable"></tbody></table></div></div>
+</div>
+
+<!-- ANALYTICS -->
+<div id="s-analytics" class="section">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:6px">
+        <div class="panel"><div class="panel-body stat-block"><div class="val" id="anViews">0</div><div class="lbl">Page Views (7d)</div></div></div>
+        <div class="panel"><div class="panel-body stat-block"><div class="val" id="anSession">0m</div><div class="lbl">Avg Session</div></div></div>
+        <div class="panel"><div class="panel-body stat-block"><div class="val" id="anResumes">0</div><div class="lbl">Resumes Created</div></div></div>
+        <div class="panel"><div class="panel-body stat-block"><div class="val" id="anInterviews">0</div><div class="lbl">Interviews Done</div></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px">
+        <div class="panel"><div class="panel-head"><span>Feature Usage</span></div><div class="panel-body"><canvas id="featureChart" height="180"></canvas></div></div>
+        <div class="panel"><div class="panel-head"><span>Conversion Funnel</span></div><div class="panel-body" id="fullFunnel"></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+        <div class="panel"><div class="panel-head"><span>Traffic Sources</span></div><div class="panel-body"><canvas id="trafficChart" height="140"></canvas></div></div>
+        <div class="panel"><div class="panel-head"><span>User Growth</span></div><div class="panel-body"><canvas id="userChart" height="140"></canvas></div></div>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div id="s-content" class="section">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+        <span style="font-size:9px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.1em">Content Management</span>
+        <button class="btn btn-primary" onclick="showContentForm()">+ New</button>
+    </div>
+    <div id="contentForm" class="form-card" style="display:none">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px">
+            <input class="input" id="cTitle" placeholder="Title">
+            <select class="input" id="cType"><option>Article</option><option>Video</option><option>Template</option><option>Guide</option></select>
+            <select class="input" id="cCategory"><option>Resume</option><option>Interview</option><option>Career</option><option>Skills</option></select>
+        </div>
+        <textarea class="input mb-2" id="cBody" placeholder="Content body..." rows="2" style="resize:vertical;min-height:40px"></textarea>
+        <div class="flex gap-2"><button class="btn btn-primary" onclick="saveContent()">Publish</button><button class="btn btn-ghost" onclick="hideContentForm()">Cancel</button></div>
+    </div>
+    <div class="panel"><div class="panel-body" style="padding:0"><table><thead><tr><th>Title</th><th>Type</th><th>Category</th><th>Views</th><th>Published</th><th>Action</th></tr></thead><tbody id="contentTable"></tbody></table></div></div>
+</div>
+
+<!-- SUPPORT -->
+<div id="s-support" class="section">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:6px">
+        <div class="panel"><div class="panel-body stat-block"><div class="val text-brand-amber" id="openTickets">0</div><div class="lbl">Open</div></div></div>
+        <div class="panel"><div class="panel-body stat-block"><div class="val" id="avgResponse">--</div><div class="lbl">Avg Response</div></div></div>
+        <div class="panel"><div class="panel-body stat-block"><div class="val text-brand-emerald" id="resolvedToday">0</div><div class="lbl">Resolved Today</div></div></div>
+        <div class="panel"><div class="panel-body stat-block"><div class="val" id="csatScore">--</div><div class="lbl">CSAT</div></div></div>
+    </div>
+    <div class="panel"><div class="panel-body" style="padding:0"><table><thead><tr><th>ID</th><th>Subject</th><th>User</th><th>Priority</th><th>Status</th><th>Created</th><th>Action</th></tr></thead><tbody id="ticketTable"></tbody></table></div></div>
+</div>
+
+<!-- MARKETING -->
+<div id="s-marketing" class="section">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;flex:1;margin-right:8px">
+            <div class="panel"><div class="panel-body stat-block"><div class="val" id="activeCampaigns">0</div><div class="lbl">Active</div></div></div>
+            <div class="panel"><div class="panel-body stat-block"><div class="val" id="totalSpend">$0</div><div class="lbl">Spend</div></div></div>
+            <div class="panel"><div class="panel-body stat-block"><div class="val" id="totalLeads">0</div><div class="lbl">Leads</div></div></div>
+            <div class="panel"><div class="panel-body stat-block"><div class="val" id="cpl">$0</div><div class="lbl">CPL</div></div></div>
+        </div>
+        <button class="btn btn-primary" onclick="showCampaignForm()">+ Campaign</button>
+    </div>
+    <div id="campaignForm" class="form-card" style="display:none">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px">
+            <input class="input" id="campName" placeholder="Campaign Name">
+            <select class="input" id="campChannel"><option>SEO</option><option>Social Media</option><option>Email</option><option>PPC</option><option>Content Marketing</option><option>Referral</option></select>
+            <input class="input" id="campBudget" placeholder="Budget ($)" type="number">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px">
+            <input class="input" id="campStart" type="date"><input class="input" id="campEnd" type="date">
+        </div>
+        <div class="flex gap-2"><button class="btn btn-primary" onclick="saveCampaign()">Launch</button><button class="btn btn-ghost" onclick="hideCampaignForm()">Cancel</button></div>
+    </div>
+    <div class="panel"><div class="panel-body" style="padding:0"><table><thead><tr><th>Campaign</th><th>Channel</th><th>Budget</th><th>Leads</th><th>Conv %</th><th>Status</th><th>Action</th></tr></thead><tbody id="campaignTable"></tbody></table></div></div>
+</div>
+
+<!-- CONFIG -->
+<div id="s-settings" class="section">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+        <div class="panel"><div class="panel-head"><span>General</span></div><div class="panel-body"><div class="space-y-2"><div><label class="block text-[8px] text-dark-200 mb-1 uppercase font-semibold tracking-wider">Site Name</label><input class="input" value="Resume SuperHero"></div><div><label class="block text-[8px] text-dark-200 mb-1 uppercase font-semibold tracking-wider">Domain</label><input class="input" value="www.resumesuperhero.com" disabled></div><div><label class="block text-[8px] text-dark-200 mb-1 uppercase font-semibold tracking-wider">Support Email</label><input class="input" value="jarvis.stark1985@gmail.com"></div></div><button class="btn btn-primary mt-3">Save</button></div></div>
+        <div class="panel"><div class="panel-head"><span>Integrations</span></div><div class="panel-body"><div class="space-y-2"><div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:rgba(10,14,26,.5);border-radius:4px;border:1px solid rgba(30,41,59,.3)"><div><div style="font-size:10px;font-weight:600;color:#cbd5e1">Stripe</div><div style="font-size:8px;color:#334155">Payments</div></div><span class="badge b-green">Connected</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:rgba(10,14,26,.5);border-radius:4px;border:1px solid rgba(30,41,59,.3)"><div><div style="font-size:10px;font-weight:600;color:#cbd5e1">Gmail</div><div style="font-size:8px;color:#334155">Notifications</div></div><span class="badge b-green">Connected</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:rgba(10,14,26,.5);border-radius:4px;border:1px solid rgba(30,41,59,.3)"><div><div style="font-size:10px;font-weight:600;color:#cbd5e1">Google Analytics</div><div style="font-size:8px;color:#334155">Traffic</div></div><span class="badge b-amber">Setup Required</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:rgba(10,14,26,.5);border-radius:4px;border:1px solid rgba(30,41,59,.3)"><div><div style="font-size:10px;font-weight:600;color:#cbd5e1">AI API (Claude)</div><div style="font-size:8px;color:#334155">AI Backend</div></div><span class="badge b-amber">Setup Required</span></div></div></div></div>
+        <div class="panel"><div class="panel-head"><span>Pricing</span></div><div class="panel-body"><div class="space-y-2"><div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:rgba(10,14,26,.5);border-radius:4px;border:1px solid rgba(30,41,59,.3)"><div><div style="font-size:10px;font-weight:600;color:#cbd5e1">Monthly</div><div style="font-size:8px;color:#334155">Billed monthly</div></div><span style="font-size:11px;font-weight:700;color:#e2e8f0;font-family:'Space Grotesk'">$9.99/mo</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:rgba(10,14,26,.5);border-radius:4px;border:1px solid rgba(30,41,59,.3)"><div><div style="font-size:10px;font-weight:600;color:#cbd5e1">Annual</div><div style="font-size:8px;color:#334155">Billed yearly</div></div><span style="font-size:11px;font-weight:700;color:#e2e8f0;font-family:'Space Grotesk'">$79.99/yr</span></div><div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:rgba(10,14,26,.5);border-radius:4px;border:1px solid rgba(30,41,59,.3)"><div><div style="font-size:10px;font-weight:600;color:#cbd5e1">Lifetime</div><div style="font-size:8px;color:#334155">One-time</div></div><span style="font-size:11px;font-weight:700;color:#e2e8f0;font-family:'Space Grotesk'">$199.99</span></div></div></div></div>
+        <div class="panel"><div class="panel-head"><span>Security</span></div><div class="panel-body"><div class="space-y-2"><button class="btn btn-ghost w-full text-left" style="font-size:10px">Change Admin Password</button><button class="btn btn-ghost w-full text-left" style="font-size:10px">Manage Admin Users</button><button class="btn btn-ghost w-full text-left" style="font-size:10px">View Audit Log</button><button class="btn btn-ghost w-full text-left" style="font-size:10px">API Key Management</button></div></div></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+<script>
+// AUTH
+function doLogin(){const u=document.getElementById('loginUser').value,p=document.getElementById('loginPass').value;if(u==='jarvisadmin'&&p==='Jarvissuperhero1985'){document.getElementById('loginScreen').style.display='none';document.getElementById('adminApp').style.display='flex';initAdmin()}else{document.getElementById('loginError').classList.remove('hidden');setTimeout(()=>document.getElementById('loginError').classList.add('hidden'),3000)}}
+function doLogout(){if(confirm('Sign out?')){document.getElementById('adminApp').style.display='none';document.getElementById('loginScreen').style.display='flex';document.getElementById('loginUser').value='';document.getElementById('loginPass').value=''}}
+
+// NAV
+function navTo(s){document.querySelectorAll('.section').forEach(el=>el.classList.remove('active'));document.querySelectorAll('#adminNav .ops-tab').forEach(b=>b.classList.remove('active'));const sec=document.getElementById('s-'+s);if(sec)sec.classList.add('active');const btn=document.querySelector(`#adminNav .ops-tab[data-s="${s}"]`);if(btn)btn.classList.add('active');if(s==='revenue')renderTransactions()}
+
+// DATA
+const mockUsers=[{id:1,name:'Sarah Chen',email:'sarah.chen@gmail.com',plan:'Premium',status:'active',joined:'2026-04-02',resumes:3,interviews:5},{id:2,name:'Marcus Johnson',email:'mjohnson@yahoo.com',plan:'Premium',status:'active',joined:'2026-04-01',resumes:2,interviews:3},{id:3,name:'Priya Patel',email:'priya.p@outlook.com',plan:'Monthly',status:'active',joined:'2026-04-03',resumes:1,interviews:1},{id:4,name:'James Wilson',email:'jwilson@gmail.com',plan:'Trial',status:'trial',joined:'2026-04-04',resumes:0,interviews:0},{id:5,name:'Elena Rodriguez',email:'elena.r@gmail.com',plan:'Annual',status:'active',joined:'2026-03-28',resumes:4,interviews:8},{id:6,name:'David Kim',email:'dkim@hotmail.com',plan:'Monthly',status:'active',joined:'2026-03-30',resumes:2,interviews:2},{id:7,name:'Lisa Thompson',email:'lisaT@gmail.com',plan:'Trial',status:'trial',joined:'2026-04-04',resumes:1,interviews:0},{id:8,name:'Robert Chen',email:'rchen@outlook.com',plan:'Premium',status:'churned',joined:'2026-03-15',resumes:1,interviews:1},{id:9,name:'Amanda Foster',email:'afoster@gmail.com',plan:'Monthly',status:'active',joined:'2026-04-02',resumes:2,interviews:4},{id:10,name:'Kevin Zhang',email:'kzhang@yahoo.com',plan:'Annual',status:'active',joined:'2026-03-25',resumes:5,interviews:12}];
+const mockTickets=[{id:'T-001',subject:'Cannot download PDF resume',user:'sarah.chen@gmail.com',priority:'High',status:'Open',created:'2026-04-04'},{id:'T-002',subject:'Login issue on mobile',user:'mjohnson@yahoo.com',priority:'Medium',status:'Open',created:'2026-04-03'},{id:'T-003',subject:'Feature request: Cover letter builder',user:'elena.r@gmail.com',priority:'Low',status:'Open',created:'2026-04-02'},{id:'T-004',subject:'Billing question about annual plan',user:'dkim@hotmail.com',priority:'Medium',status:'Resolved',created:'2026-04-01'}];
+const mockContent=[{id:1,title:'The STAR Method for Resume Bullets',type:'Article',category:'Resume',views:342,published:'2026-04-01'},{id:2,title:'ATS-Proof Your Resume',type:'Guide',category:'Resume',views:567,published:'2026-03-28'},{id:3,title:'Behavioral Interview Mastery',type:'Article',category:'Interview',views:289,published:'2026-03-25'},{id:4,title:'Top Skills for 2026',type:'Article',category:'Skills',views:431,published:'2026-03-20'}];
+const mockCampaigns=[{id:1,name:'Launch Week Push',channel:'Social Media',budget:50,leads:23,conv:8.5,status:'Active'},{id:2,name:'SEO Content Blitz',channel:'SEO',budget:0,leads:45,conv:3.2,status:'Active'},{id:3,name:'Reddit Career Subs',channel:'Content Marketing',budget:0,leads:18,conv:5.1,status:'Active'},{id:4,name:'Email Outreach V1',channel:'Email',budget:10,leads:8,conv:2.8,status:'Paused'}];
+
+// INIT
+function initAdmin(){
+    document.getElementById('headerDate').textContent=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'});
+    const days=Math.ceil((new Date('2026-05-03')-new Date())/(864e5));
+    document.getElementById('daysLeftBadge').textContent=days+'d left';
+    updateHeaderKPIs();renderOverview();renderCharts();renderUsers();renderTickets();renderContent();renderCampaigns();renderAnalytics();
+}
+
+function updateHeaderKPIs(){
+    const paid=mockUsers.filter(u=>u.status==='active'&&u.plan!=='Trial').length,mrr=paid*9.99,rev=mrr,goalPct=((rev/10000)*100).toFixed(1);
+    document.getElementById('hMRR').textContent='$'+mrr.toFixed(2);document.getElementById('hUsers').textContent=mockUsers.length;document.getElementById('hPaid').textContent=paid;
+    document.getElementById('hChurn').textContent=Math.round(mockUsers.filter(u=>u.status==='churned').length/mockUsers.length*100)+'%';
+    document.getElementById('hTickets').textContent=mockTickets.filter(t=>t.status==='Open').length;document.getElementById('hGoal').textContent=goalPct+'%';
+    document.getElementById('totalRevenue').textContent='$'+rev.toFixed(2);document.getElementById('goalBar').style.width=Math.min(parseFloat(goalPct),100)+'%';
+}
+
+// OVERVIEW
+function renderOverview(){
+    const paid=mockUsers.filter(u=>u.status==='active'&&u.plan!=='Trial').length,mrr=paid*9.99;
+    const plans=[{name:'Monthly',count:mockUsers.filter(u=>u.plan==='Monthly').length,color:'#3b82f6'},{name:'Annual',count:mockUsers.filter(u=>u.plan==='Annual').length,color:'#8b5cf6'},{name:'Premium',count:mockUsers.filter(u=>u.plan==='Premium').length,color:'#f59e0b'},{name:'Trial',count:mockUsers.filter(u=>u.plan==='Trial').length,color:'#475569'}];
+    document.getElementById('revBreakdownPanel').innerHTML=plans.map(p=>`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px"><div style="display:flex;align-items:center;gap:4px"><div style="width:6px;height:6px;border-radius:1px;background:${p.color}"></div><span style="color:#94a3b8">${p.name} (${p.count})</span></div><span style="color:#e2e8f0;font-weight:600;font-family:'Space Grotesk'">${p.name==='Trial'?'$0':'$'+(p.count*(p.name==='Annual'?79.99:9.99)).toFixed(2)}</span></div>`).join('')+`<div style="border-top:1px solid rgba(30,41,59,.4);padding-top:3px;margin-top:4px;display:flex;justify-content:space-between"><span style="color:#e2e8f0;font-weight:600">ARPU</span><span style="color:#e2e8f0;font-weight:700;font-family:'Space Grotesk'">$${paid>0?(mrr/paid).toFixed(2):'0'}</span></div>`;
+
+    const trans=mockUsers.filter(u=>u.status==='active'&&u.plan!=='Trial').slice(0,5);
+    document.getElementById('miniTransTable').innerHTML=trans.map(u=>`<tr><td>${u.name.split(' ')[0]}</td><td><span class="badge b-gray">${u.plan}</span></td><td style="color:#34d399;font-weight:600;font-family:'Space Grotesk'">${u.plan==='Annual'?'$79.99':'$9.99'}</td></tr>`).join('');
+
+    const active=mockUsers.filter(u=>u.status==='active').length,trial=mockUsers.filter(u=>u.status==='trial').length,churned=mockUsers.filter(u=>u.status==='churned').length;
+    document.getElementById('userStatusBlocks').innerHTML=`<div style="flex:1;text-align:center;padding:5px;border-radius:4px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15)"><div style="font-size:16px;font-weight:700;color:#34d399;font-family:'Space Grotesk'">${active}</div><div style="font-size:7px;color:#475569;font-weight:600;text-transform:uppercase">ACTIVE</div></div><div style="flex:1;text-align:center;padding:5px;border-radius:4px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15)"><div style="font-size:16px;font-weight:700;color:#fbbf24;font-family:'Space Grotesk'">${trial}</div><div style="font-size:7px;color:#475569;font-weight:600;text-transform:uppercase">TRIAL</div></div><div style="flex:1;text-align:center;padding:5px;border-radius:4px;background:rgba(244,63,94,.06);border:1px solid rgba(244,63,94,.15)"><div style="font-size:16px;font-weight:700;color:#fb7185;font-family:'Space Grotesk'">${churned}</div><div style="font-size:7px;color:#475569;font-weight:600;text-transform:uppercase">CHURNED</div></div>`;
+    document.getElementById('userMetrics').innerHTML=`<div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="color:#94a3b8">Conversion</span><span style="color:#e2e8f0;font-weight:600">${Math.round(paid/mockUsers.length*100)}%</span></div><div style="display:flex;justify-content:space-between"><span style="color:#94a3b8">LTV Est</span><span style="color:#e2e8f0;font-weight:600;font-family:'Space Grotesk'">$${(9.99*12).toFixed(2)}</span></div>`;
+
+    const total=1247,fData=[{s:'Visitors',c:total,p:100},{s:'Signups',c:mockUsers.length,p:((mockUsers.length/total)*100).toFixed(1)},{s:'Active',c:active,p:((active/total)*100).toFixed(1)},{s:'Paid',c:paid,p:((paid/total)*100).toFixed(1)}];
+    document.getElementById('funnelPanel').innerHTML=fData.map(f=>`<div style="margin-bottom:5px"><div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="color:#94a3b8">${f.s}</span><span style="font-weight:600">${f.c} <span style="color:#475569">(${f.p}%)</span></span></div><div class="pbar"><div class="fill" style="width:${f.p}%"></div></div></div>`).join('');
+
+    const openTix=mockTickets.filter(t=>t.status==='Open'),pc={High:'b-rose',Medium:'b-amber',Low:'b-gray'};
+    document.getElementById('miniTicketPanel').innerHTML=openTix.map(t=>`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px"><div style="display:flex;align-items:center;gap:4px"><span style="font-family:'JetBrains Mono';font-size:9px;color:#475569">${t.id}</span><span style="color:#94a3b8">${t.subject.length>28?t.subject.slice(0,28)+'...':t.subject}</span></div><span class="badge ${pc[t.priority]}">${t.priority}</span></div>`).join('');
+
+    document.getElementById('miniCampaignPanel').innerHTML=mockCampaigns.filter(c=>c.status==='Active').map(c=>`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px"><span style="color:#94a3b8">${c.name}</span><span style="color:#34d399;font-weight:600;font-family:'Space Grotesk'">${c.leads} leads</span></div>`).join('');
+
+    const acts=['New user: James Wilson','Sub: Priya → Monthly','Resume: Sarah Chen','Ticket T-001 opened','Campaign started','User: Lisa Thompson','Interview: Elena Rodriguez','Payment: $9.99 Marcus'],dots=['#6366f1','#10b981','#3b82f6','#f59e0b','#8b5cf6','#6366f1','#3b82f6','#10b981'];
+    document.getElementById('activityPanel').innerHTML=acts.map((a,i)=>`<div style="display:flex;align-items:start;gap:5px;margin-bottom:3px"><div class="dot" style="background:${dots[i]}"></div><div><span style="color:#94a3b8">${a}</span> <span style="color:#1e293b;font-family:'JetBrains Mono';font-size:8px">${Math.floor(Math.random()*48)+1}h</span></div></div>`).join('');
+}
+
+// CHARTS
+function renderCharts(){
+    const days=Array.from({length:14},(_,i)=>{const d=new Date();d.setDate(d.getDate()-13+i);return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})});
+    const g='rgba(30,41,59,.4)',t='#334155';
+    const baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:g},ticks:{color:t,font:{size:8,family:'JetBrains Mono'}}},y:{grid:{color:g},ticks:{color:t,font:{size:8,family:'JetBrains Mono'}}}}};
+    new Chart(document.getElementById('revenueChart'),{type:'line',data:{labels:days,datasets:[{data:[0,0,0,0,0,0,0,0,9.99,9.99,19.98,29.97,49.95,69.93],borderColor:'#6366f1',backgroundColor:'rgba(99,102,241,.08)',fill:true,tension:.4,pointRadius:1.5,borderWidth:1.5}]},options:{...baseOpts,scales:{...baseOpts.scales,y:{...baseOpts.scales.y,ticks:{...baseOpts.scales.y.ticks,callback:v=>'$'+v}}}}});
+    new Chart(document.getElementById('userChart'),{type:'bar',data:{labels:days,datasets:[{data:[0,0,0,0,1,1,2,3,4,5,6,7,8,10],backgroundColor:'rgba(99,102,241,.5)',borderRadius:2}]},options:baseOpts});
+    new Chart(document.getElementById('revBreakdownChart'),{type:'doughnut',data:{labels:['Monthly','Annual','Premium','Trial'],datasets:[{data:[3,2,3,2],backgroundColor:['#3b82f6','#8b5cf6','#f59e0b','#334155'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{position:'bottom',labels:{color:'#64748b',font:{size:9},padding:8,boxWidth:8}}}}});
+    new Chart(document.getElementById('featureChart'),{type:'bar',data:{labels:['Resume','Interview','LinkedIn','Jobs','Salary','Learning'],datasets:[{data:[45,32,28,22,15,38],backgroundColor:['#3b82f6','#8b5cf6','#10b981','#f59e0b','#f43f5e','#6366f1'],borderRadius:2}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:g},ticks:{color:t,font:{size:8}}},y:{grid:{display:false},ticks:{color:'#64748b',font:{size:9}}}}}});
+    new Chart(document.getElementById('trafficChart'),{type:'bar',data:{labels:['Direct','Google','Social','Referral','Email'],datasets:[{data:[120,85,45,30,20],backgroundColor:['#6366f1','#3b82f6','#8b5cf6','#10b981','#f59e0b'],borderRadius:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#64748b',font:{size:9}}},y:{grid:{color:g},ticks:{color:t,font:{size:8}}}}}});
+}
+
+// ANALYTICS
+function renderAnalytics(){
+    document.getElementById('anViews').textContent='1,247';document.getElementById('anSession').textContent='4.2m';
+    document.getElementById('anResumes').textContent=mockUsers.reduce((a,u)=>a+u.resumes,0);document.getElementById('anInterviews').textContent=mockUsers.reduce((a,u)=>a+u.interviews,0);
+    const total=1247,signups=mockUsers.length,active=mockUsers.filter(u=>u.status==='active').length,paid=mockUsers.filter(u=>u.status==='active'&&u.plan!=='Trial').length;
+    document.getElementById('fullFunnel').innerHTML=[{s:'Website Visitors',c:total,p:100},{s:'Sign Ups',c:signups,p:((signups/total)*100).toFixed(1)},{s:'Active Users',c:active,p:((active/total)*100).toFixed(1)},{s:'Paid Subscribers',c:paid,p:((paid/total)*100).toFixed(1)}].map(f=>`<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="color:#94a3b8">${f.s}</span><span style="font-weight:600;font-family:'Space Grotesk'">${f.c} <span style="color:#475569">(${f.p}%)</span></span></div><div class="pbar" style="height:5px"><div class="fill" style="width:${f.p}%"></div></div></div>`).join('');
+}
+
+// USERS
+let userFilter='all';
+function renderUsers(){
+    const search=(document.getElementById('userSearch')?.value||'').toLowerCase();let users=mockUsers;if(userFilter!=='all')users=users.filter(u=>u.status===userFilter);if(search)users=users.filter(u=>u.name.toLowerCase().includes(search)||u.email.toLowerCase().includes(search));
+    document.getElementById('countAll').textContent=mockUsers.length;document.getElementById('countActive').textContent=mockUsers.filter(u=>u.status==='active').length;document.getElementById('countTrial').textContent=mockUsers.filter(u=>u.status==='trial').length;document.getElementById('countChurned').textContent=mockUsers.filter(u=>u.status==='churned').length;
+    const sc={active:'b-green',trial:'b-amber',churned:'b-rose'};
+    document.getElementById('userTable').innerHTML=users.map(u=>`<tr><td style="font-weight:500;color:#e2e8f0">${u.name}</td><td style="font-family:'JetBrains Mono';font-size:9px">${u.email}</td><td><span class="badge b-gray">${u.plan}</span></td><td><span class="badge ${sc[u.status]}">${u.status}</span></td><td style="font-family:'JetBrains Mono';font-size:9px">${u.joined}</td><td>${u.resumes}</td><td>${u.interviews}</td><td><button class="btn btn-ghost" style="padding:2px 6px;font-size:8px" onclick="alert('User: ${u.name}\\nEmail: ${u.email}\\nPlan: ${u.plan}\\nResumes: ${u.resumes}\\nInterviews: ${u.interviews}')">View</button></td></tr>`).join('');
+}
+function filterUsers(){renderUsers()}
+function filterUserTab(tab,el){userFilter=tab;document.querySelectorAll('#userTabs .ops-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderUsers()}
+function exportUsers(){const csv='Name,Email,Plan,Status,Joined,Resumes,Interviews\n'+mockUsers.map(u=>`${u.name},${u.email},${u.plan},${u.status},${u.joined},${u.resumes},${u.interviews}`).join('\n');const blob=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='users_export.csv';a.click()}
+
+// TICKETS
+function renderTickets(){
+    document.getElementById('openTickets').textContent=mockTickets.filter(t=>t.status==='Open').length;document.getElementById('avgResponse').textContent='2.4h';document.getElementById('resolvedToday').textContent=mockTickets.filter(t=>t.status==='Resolved').length;document.getElementById('csatScore').textContent='4.2/5';
+    const pc={High:'b-rose',Medium:'b-amber',Low:'b-gray'},stc={Open:'b-amber',Resolved:'b-green'};
+    document.getElementById('ticketTable').innerHTML=mockTickets.map(t=>`<tr><td style="font-family:'JetBrains Mono';font-size:9px;color:#475569">${t.id}</td><td>${t.subject}</td><td style="font-size:9px">${t.user}</td><td><span class="badge ${pc[t.priority]}">${t.priority}</span></td><td><span class="badge ${stc[t.status]}">${t.status}</span></td><td style="font-family:'JetBrains Mono';font-size:9px">${t.created}</td><td><button class="btn btn-ghost" style="padding:2px 6px;font-size:8px" onclick="alert('Ticket ${t.id}: ${t.subject}')">View</button></td></tr>`).join('');
+}
+
+// CONTENT
+function renderContent(){document.getElementById('contentTable').innerHTML=mockContent.map(c=>`<tr><td style="font-weight:500;color:#e2e8f0">${c.title}</td><td><span class="badge b-blue">${c.type}</span></td><td>${c.category}</td><td>${c.views}</td><td style="font-family:'JetBrains Mono';font-size:9px">${c.published}</td><td><button class="btn btn-ghost" style="padding:2px 6px;font-size:8px">Edit</button></td></tr>`).join('')}
+function showContentForm(){document.getElementById('contentForm').style.display='block'}
+function hideContentForm(){document.getElementById('contentForm').style.display='none'}
+function saveContent(){const t=document.getElementById('cTitle').value;if(!t){alert('Title required');return}mockContent.unshift({id:Date.now(),title:t,type:document.getElementById('cType').value,category:document.getElementById('cCategory').value,views:0,published:new Date().toISOString().split('T')[0]});renderContent();hideContentForm();document.getElementById('cTitle').value='';document.getElementById('cBody').value=''}
+
+// CAMPAIGNS
+function renderCampaigns(){
+    document.getElementById('activeCampaigns').textContent=mockCampaigns.filter(c=>c.status==='Active').length;const spend=mockCampaigns.reduce((a,c)=>a+c.budget,0),leads=mockCampaigns.reduce((a,c)=>a+c.leads,0);
+    document.getElementById('totalSpend').textContent='$'+spend;document.getElementById('totalLeads').textContent=leads;document.getElementById('cpl').textContent=leads>0?'$'+(spend/leads).toFixed(2):'$0';
+    const stc={Active:'b-green',Paused:'b-amber',Ended:'b-gray'};
+    document.getElementById('campaignTable').innerHTML=mockCampaigns.map(c=>`<tr><td style="font-weight:500;color:#e2e8f0">${c.name}</td><td>${c.channel}</td><td style="font-family:'JetBrains Mono'">$${c.budget}</td><td>${c.leads}</td><td>${c.conv}%</td><td><span class="badge ${stc[c.status]}">${c.status}</span></td><td><button class="btn btn-ghost" style="padding:2px 6px;font-size:8px">Edit</button></td></tr>`).join('');
+}
+function showCampaignForm(){document.getElementById('campaignForm').style.display='block';document.getElementById('campStart').valueAsDate=new Date()}
+function hideCampaignForm(){document.getElementById('campaignForm').style.display='none'}
+function saveCampaign(){const n=document.getElementById('campName').value;if(!n){alert('Name required');return}mockCampaigns.unshift({id:Date.now(),name:n,channel:document.getElementById('campChannel').value,budget:parseInt(document.getElementById('campBudget').value)||0,leads:0,conv:0,status:'Active'});renderCampaigns();hideCampaignForm()}
+
+// TRANSACTIONS
+function renderTransactions(){
+    const paid=mockUsers.filter(u=>u.status==='active'&&u.plan!=='Trial');
+    document.getElementById('revTotal').textContent='$'+(paid.length*9.99).toFixed(2);document.getElementById('revMonth').textContent='$'+(paid.length*9.99).toFixed(2);
+    document.getElementById('revARPU').textContent='$'+(paid.length>0?9.99:0).toFixed(2);document.getElementById('revLTV').textContent='$'+(9.99*12).toFixed(2);
+    document.getElementById('transTable').innerHTML=paid.map(u=>`<tr><td style="font-family:'JetBrains Mono';font-size:9px">${u.joined}</td><td style="font-weight:500;color:#e2e8f0">${u.name}</td><td><span class="badge b-gray">${u.plan}</span></td><td style="color:#34d399;font-weight:600;font-family:'Space Grotesk'">${u.plan==='Annual'?'$79.99':'$9.99'}</td><td><span class="badge b-green">Paid</span></td></tr>`).join('');
+}
+</script>
+</body>
+</html>
