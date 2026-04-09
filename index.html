@@ -1,864 +1,1739 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resume SuperHero: AI-powered career tools to optimize your resume, ace interviews, and land your dream job. $9.99/month. Join 12,000+ job seekers.">
+    <meta name="keywords" content="resume builder, interview coach, job search, career, AI">
+    <meta property="og:title" content="Resume SuperHero - Land Your Dream Job Faster">
+    <meta property="og:description" content="AI-powered career tools for resume optimization, interview prep, and job search automation.">
+    <meta property="og:image" content="https://resumesuperhero.com/og-image.png">
+    <meta property="og:url" content="https://resumesuperhero.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#FF6B35">
+
+    <title>Resume SuperHero - Land Your Dream Job Faster</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-P2C3KN7T');</script>
-    <!-- End Google Tag Manager -->
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVV7C7Y5YY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RVV7C7Y5YY');
-    </script>
-    <!-- End Google tag -->
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; img-src 'self' data: https:; connect-src 'self' https://api.resumesuperhero.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; frame-src https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>Resume SuperHero | Your AI-Powered Career Edge</title>
-    <meta name="description" content="Land your dream job with AI-powered resume building, interview coaching, and career roadmaps for just $9.99/month. ResumeSuperHero.com">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.resumesuperhero.com">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.resumesuperhero.com">
-    <meta property="og:title" content="Resume SuperHero | Your AI-Powered Career Edge">
-    <meta property="og:description" content="Land your dream job with AI-powered resume building, interview coaching, and career roadmaps for just $9.99/month.">
-    <meta property="og:image" content="https://www.resumesuperhero.com/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Resume SuperHero | Your AI-Powered Career Edge">
-    <meta name="twitter:description" content="Land your dream job with AI-powered resume building, interview coaching, and career roadmaps for just $9.99/month.">
-    <meta name="twitter:image" content="https://www.resumesuperhero.com/og-image.png">
-
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD Schema -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
+      "@context": "https://schema.org/",
       "@type": "SoftwareApplication",
       "name": "Resume SuperHero",
-      "description": "AI-powered career preparation system with resume building, interview coaching, job search automation, salary negotiation, LinkedIn optimization, and career roadmapping.",
-      "url": "https://www.resumesuperhero.com",
+      "description": "AI-powered career tools for resume optimization, interview prep, and job search automation",
+      "url": "https://resumesuperhero.com",
       "applicationCategory": "BusinessApplication",
       "offers": {
         "@type": "Offer",
         "price": "9.99",
         "priceCurrency": "USD",
-        "priceValidUntil": "2026-12-31"
+        "url": "https://buy.stripe.com/test_cNa28H2Yp4d50XS3cz"
       },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
-        "ratingCount": "2400"
+        "ratingCount": "12000"
       }
     }
     </script>
 
-    <!-- Fonts: Inter for body, Space Grotesk for headings -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandBlue: '#2563eb',
-                        brandViolet: '#7c3aed',
-                        brandAmber: '#fbbf24',
-                        darkBg: '#0f172a',
-                        darkCard: '#1e293b',
-                        darkBorder: '#334155'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Space Grotesk', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .hero-glow {
-            background: radial-gradient(ellipse at 60% 50%, rgba(124, 58, 237, 0.25) 0%, transparent 70%),
-                        radial-gradient(ellipse at 20% 80%, rgba(37, 99, 235, 0.2) 0%, transparent 60%);
+
+        :root {
+            --bg-primary: #0B0F1A;
+            --bg-card: #141923;
+            --border-card: rgba(255,255,255,0.06);
+            --accent-orange: #FF6B35;
+            --accent-teal: #4ECDC4;
+            --accent-yellow: #FFD93D;
+            --accent-red: #FF4444;
+            --accent-purple: #6C63FF;
+            --text-primary: #FFFFFF;
+            --text-muted: #94A3B8;
+            --text-light: #CBD5E1;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #fbbf24 100%);
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            border: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background-color: var(--bg-card);
+            border-bottom: 2px solid var(--accent-orange);
+            padding: 0.75rem var(--spacing-lg);
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .announcement-bar strong {
+            color: var(--accent-orange);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem var(--spacing-lg);
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-card);
+            position: sticky;
+            top: 42px;
+            z-index: 998;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xl);
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .logo svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .logo .normal {
+            color: var(--text-primary);
+        }
+
+        .logo .italic {
+            font-style: italic;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            flex: 1;
         }
-        .card-hover:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 60px rgba(124, 58, 237, 0.25);
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
         }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            margin-left: auto;
+        }
+
+        .login-link {
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .login-link:hover {
+            color: var(--accent-orange);
+        }
+
         .btn-primary {
-            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+            background: linear-gradient(135deg, var(--accent-orange), #FF8855);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
+
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.6);
+            box-shadow: 0 8px 16px rgba(255, 107, 53, 0.3);
         }
-        .feature-icon {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(124, 58, 237, 0.2));
-            border: 1px solid rgba(124, 58, 237, 0.3);
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+            min-height: 700px;
         }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease-out;
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-card);
+            padding: 0.75rem 1.25rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-lg);
+            width: fit-content;
         }
-        .faq-item.active .faq-answer {
-            max-height: 300px;
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-lg);
         }
-        .faq-icon {
-            transition: transform 0.35s ease;
-        }
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
-        .pricing-card {
-            background: linear-gradient(135deg, #1e293b, #1e1b4b);
-            border: 2px solid rgba(124, 58, 237, 0.5);
-            box-shadow: 0 0 60px rgba(124, 58, 237, 0.2);
-        }
-        .stat-number {
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+
+        .hero-content h1 .italic {
+            font-style: italic;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-red));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-lg);
+            max-width: 500px;
+            line-height: 1.8;
         }
-        .float-anim { animation: float 4s ease-in-out infinite; }
-        .float-anim-delay { animation: float 4s ease-in-out 1s infinite; }
-        .mockup-card {
-            background: rgba(30, 41, 59, 0.9);
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1.5px solid var(--border-card);
+            color: var(--text-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+
+        /* Social Proof Bar */
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-card);
+        }
+
+        .avatars {
+            display: flex;
+            margin-right: var(--spacing-sm);
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: -8px;
+            border: 2px solid var(--bg-primary);
+        }
+
+        .avatar:first-child {
+            margin-left: 0;
+        }
+
+        .proof-text {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .stars {
+            color: var(--accent-yellow);
+            font-size: 0.85rem;
+        }
+
+        /* Hero Cards - Right Side */
+        .hero-cards {
+            position: relative;
+            height: 600px;
+        }
+
+        .hero-card {
+            position: absolute;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1rem;
+            padding: var(--spacing-lg);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(124, 58, 237, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: float-slow 6s ease-in-out infinite;
         }
-        .nav-link { position: relative; }
-        .nav-link::after {
+
+        .hero-card:nth-child(2) {
+            animation: float-slow 8s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        .hero-card:nth-child(3) {
+            animation: float-slow 7s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .card-1 {
+            top: 0;
+            right: 0;
+            width: 320px;
+            z-index: 3;
+        }
+
+        .card-2 {
+            top: 120px;
+            right: 80px;
+            width: 300px;
+            z-index: 2;
+        }
+
+        .card-3 {
+            top: 240px;
+            right: 20px;
+            width: 280px;
+            z-index: 1;
+        }
+
+        .card-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+
+        .card-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-description {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .card-metric {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            margin-top: var(--spacing-sm);
+        }
+
+        .card-metric-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .card-metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-orange), var(--accent-teal));
+        }
+
+        /* Features Section */
+        .features {
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .feature-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1rem;
+            padding: var(--spacing-lg);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
             content: '';
             position: absolute;
-            bottom: -2px; left: 0;
-            width: 0; height: 2px;
-            background: linear-gradient(90deg, #2563eb, #7c3aed);
-            transition: width 0.3s ease;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        .nav-link:hover::after { width: 100%; }
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-orange);
+            box-shadow: 0 12px 24px rgba(255, 107, 53, 0.15);
         }
-        .animate-modal-fade {
-            animation: modalFadeIn 0.3s ease-out;
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .feature-bullets {
+            list-style: none;
+        }
+
+        .feature-bullets li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-bullets li::before {
+            content: '✓';
+            color: var(--accent-orange);
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .step-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1rem;
+            padding: var(--spacing-lg);
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .step-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .step-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1rem;
+            padding: var(--spacing-lg);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .testimonial-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .testimonial-rating {
+            color: var(--accent-yellow);
+            font-size: 0.85rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .testimonial-quote {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: var(--spacing-2xl) auto;
+            background-color: var(--bg-card);
+            border: 2px solid var(--accent-orange);
+            border-radius: 1rem;
+            padding: var(--spacing-2xl);
+            text-align: center;
+            box-shadow: 0 0 40px rgba(255, 107, 53, 0.2);
+            position: relative;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin: var(--spacing-lg) 0;
+            padding: var(--spacing-lg) 0;
+            border-top: 1px solid var(--border-card);
+            border-bottom: 1px solid var(--border-card);
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--accent-orange);
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .pricing-cta {
+            margin: var(--spacing-lg) 0;
+        }
+
+        .pricing-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: var(--spacing-md);
+        }
+
+        .trust-badge {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: var(--spacing-md);
+        }
+
+        /* Referral Section */
+        .referral {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(108, 99, 255, 0.15));
+            border: 1px solid var(--border-card);
+            border-radius: 1.5rem;
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            max-width: 1400px;
+            margin: var(--spacing-2xl) auto;
+            text-align: center;
+        }
+
+        .referral h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .referral-branding {
+            color: var(--accent-orange);
+            font-style: italic;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .referral p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-2xl);
+            line-height: 1.8;
+        }
+
+        .referral-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-2xl) 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1rem;
+            padding: var(--spacing-lg);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 1rem;
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(255, 107, 53, 0.1);
+        }
+
+        .faq-toggle {
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 var(--spacing-lg) var(--spacing-lg);
+            color: var(--text-muted);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-card);
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-section h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-orange);
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-card);
+            padding-top: var(--spacing-lg);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--bg-card);
+            padding: var(--spacing-2xl);
+            border-radius: 1rem;
+            border: 1px solid var(--border-card);
+            width: 90%;
+            max-width: 400px;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+        }
+
+        .close-btn {
+            font-size: 2rem;
+            font-weight: bold;
+            background: none;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-card);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+        }
+
+        /* Sticky Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-card);
+            padding: 1rem;
+            z-index: 997;
+        }
+
+        .mobile-cta-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-cta-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .mobile-cta-text .highlight {
+            color: var(--accent-orange);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding: var(--spacing-lg);
+            }
+
+            .hero-cards {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .announcement-bar {
+                font-size: 0.85rem;
+                padding: 0.5rem var(--spacing-md);
+            }
+
+            nav {
+                padding: 1rem var(--spacing-md);
+            }
+
+            .nav-container {
+                padding: 0;
+            }
+
+            .mobile-cta {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 70px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .final-cta h2 {
+                font-size: 1.75rem;
+            }
+
+            .final-cta-buttons {
+                flex-direction: column;
+            }
+
+            .final-cta-buttons a, .final-cta-buttons button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.75rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .pricing-price {
+                font-size: 2.5rem;
+            }
+
+            .referral h2 {
+                font-size: 1.75rem;
+            }
         }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 font-sans antialiased">
+<body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2C3KN7T"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <!-- NAV -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/80 backdrop-blur-md border-b border-darkBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-xl btn-primary flex items-center justify-center flex-shrink-0">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <span class="font-heading font-bold text-xl text-white">Resume<span class="gradient-text">SuperHero</span></span>
-                </div>
-                <nav class="hidden md:flex items-center gap-8">
-                    <a href="#features" class="nav-link text-sm text-slate-300 hover:text-white transition-colors font-medium">Features</a>
-                    <a href="#how-it-works" class="nav-link text-sm text-slate-300 hover:text-white transition-colors font-medium">How It Works</a>
-                    <a href="#testimonials" class="nav-link text-sm text-slate-300 hover:text-white transition-colors font-medium">Testimonials</a>
-                    <a href="#pricing" class="nav-link text-sm text-slate-300 hover:text-white transition-colors font-medium">Pricing</a>
-                    <a href="#faq" class="nav-link text-sm text-slate-300 hover:text-white transition-colors font-medium">FAQ</a>
-                </nav>
-                <div class="flex items-center gap-3">
-                    <button onclick="openLoginModal()" class="hidden sm:inline-block text-sm font-medium text-slate-300 hover:text-white transition-colors cursor-pointer bg-none border-none p-0">Log in</button>
-                    <a href="https://buy.stripe.com/6oUbJ0fvAaQj8ca7nWfbq00" class="btn-primary px-5 py-2.5 rounded-xl text-sm font-semibold text-white inline-block hidden sm:inline-block">Get Started</a>
-                    <!-- Mobile hamburger -->
-                    <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="md:hidden text-white p-2" aria-label="Menu">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-                    </button>
-                </div>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <strong>Limited Time:</strong> Join 12,000+ job seekers getting hired faster with AI
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z" style="color: var(--accent-orange);" stroke="var(--accent-orange)" fill="var(--accent-orange)"/>
+                </svg>
+                <span class="normal">Resume</span><span class="italic">SuperHero</span>
             </div>
-            <!-- Mobile menu dropdown -->
-            <div id="mobileMenu" class="hidden md:hidden border-t border-darkBorder bg-darkBg/95 backdrop-blur-md px-4 py-4 space-y-3">
-                <a href="#features" class="block text-sm text-slate-300 hover:text-white py-2">Features</a>
-                <a href="#how-it-works" class="block text-sm text-slate-300 hover:text-white py-2">How It Works</a>
-                <a href="#testimonials" class="block text-sm text-slate-300 hover:text-white py-2">Testimonials</a>
-                <a href="#pricing" class="block text-sm text-slate-300 hover:text-white py-2">Pricing</a>
-                <a href="#faq" class="block text-sm text-slate-300 hover:text-white py-2">FAQ</a>
-                <div class="border-t border-darkBorder pt-3 flex flex-col gap-2">
-                    <button onclick="openLoginModal();document.getElementById('mobileMenu').classList.add('hidden')" class="w-full text-center text-sm font-medium text-white border border-brandViolet rounded-xl py-2.5 hover:bg-brandViolet/20 transition-colors cursor-pointer bg-transparent">Log In</button>
-                    <a href="https://buy.stripe.com/6oUbJ0fvAaQj8ca7nWfbq00" class="w-full text-center btn-primary px-5 py-2.5 rounded-xl text-sm font-semibold text-white block">Get Started</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="nav-right">
+                <span class="login-link" onclick="openLoginModal()">Log in</span>
+                <button class="btn-primary" onclick="scrollToSection('pricing')">Get Started</button>
+            </div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="status-pill">
+                ⚡ Superhero Career Superpowers · $9.99/mo
+            </div>
+            <h1>Land Your <span class="italic">Dream Job</span> Faster.</h1>
+            <p>AI-powered tools to optimize your resume, ace interviews, and unlock higher salaries. Get hired 3x faster with Resume SuperHero's complete career arsenal.</p>
+            <div class="cta-buttons">
+                <a href="https://buy.stripe.com/test_cNa28H2Yp4d50XS3cz" class="btn-primary">Get Started for $9.99/mo →</a>
+                <button class="btn-secondary" onclick="scrollToSection('how-it-works')">See How It Works</button>
+            </div>
+            <div class="social-proof">
+                <div class="avatars">
+                    <div class="avatar">JM</div>
+                    <div class="avatar">DK</div>
+                    <div class="avatar">ST</div>
+                </div>
+                <div class="proof-text">
+                    <span class="stars">★★★★★</span>
+                    <span><strong>12,000+</strong> job seekers getting hired</span>
                 </div>
             </div>
         </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero-gradient hero-glow relative min-h-screen flex items-center pt-16 overflow-hidden">
-        <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: linear-gradient(rgba(124,58,237,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="inline-flex items-center gap-2 bg-brandViolet/20 border border-brandViolet/40 rounded-full px-4 py-2 text-sm font-medium text-violet-300 mb-6">
-                        <span class="w-2 h-2 bg-brandAmber rounded-full animate-pulse"></span>
-                        Superhero Career Superpowers &middot; $9.99/mo
-                    </div>
-                    <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-white mb-6">
-                        Land Your
-                        <span class="gradient-text block">Dream Job</span>
-                        Faster.
-                    </h1>
-                    <p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8 max-w-xl">
-                        Resume SuperHero gives you AI-powered career superpowers &mdash; from a job-winning resume to flawless interview answers and a personalized career roadmap. Stop guessing. Start landing offers.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 mb-10">
-                        <a href="https://buy.stripe.com/6oUbJ0fvAaQj8ca7nWfbq00" class="btn-primary px-8 py-4 rounded-xl text-base font-bold text-white text-center inline-block">Get Started for $9.99/mo &rarr;</a>
-                        <a href="#how-it-works" class="px-8 py-4 rounded-xl text-base font-semibold text-white text-center border border-darkBorder hover:border-brandViolet/60 transition-colors inline-block">See How It Works</a>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-6">
-                        <div class="flex items-center gap-2">
-                            <div class="flex -space-x-2">
-                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-violet-600 border-2 border-darkBg"></div>
-                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 border-2 border-darkBg"></div>
-                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-teal-600 border-2 border-darkBg"></div>
-                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-rose-400 to-pink-600 border-2 border-darkBg flex items-center justify-center text-white text-xs font-bold">+</div>
-                            </div>
-                            <div>
-                                <div class="text-white font-bold text-sm">12,000+</div>
-                                <div class="text-slate-400 text-xs">job seekers</div>
-                            </div>
-                        </div>
-                        <div class="h-8 w-px bg-darkBorder"></div>
-                        <div class="flex items-center gap-1">
-                            <span class="text-brandAmber text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                            <span class="text-slate-300 text-sm ml-1">4.9 &middot; 2,400+ reviews</span>
-                        </div>
-                    </div>
+        <div class="hero-cards">
+            <div class="hero-card card-1">
+                <div class="card-title">Resume Score</div>
+                <div class="card-value">94%</div>
+                <div class="card-description">ATS Optimized</div>
+                <div class="card-metric">
+                    <span>Match Score</span>
                 </div>
-
-                <!-- Floating UI Mockups -->
-                <div class="relative hidden lg:flex items-center justify-center h-[520px]">
-                    <div class="mockup-card rounded-2xl p-6 w-80 absolute top-10 right-8 float-anim shadow-2xl z-20">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl feature-icon flex items-center justify-center">
-                                <svg class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                            </div>
-                            <div>
-                                <div class="text-white font-semibold text-sm">Resume Score</div>
-                                <div class="text-slate-400 text-xs">ATS Optimized</div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="flex justify-between items-center mb-1">
-                                <span class="text-xs text-slate-400">Match Score</span>
-                                <span class="text-xs font-bold text-brandAmber">94%</span>
-                            </div>
-                            <div class="h-2 bg-darkBg rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-brandBlue to-brandViolet rounded-full" style="width:94%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="flex justify-between items-center mb-1">
-                                <span class="text-xs text-slate-400">Keywords</span>
-                                <span class="text-xs font-bold text-green-400">38/40</span>
-                            </div>
-                            <div class="h-2 bg-darkBg rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-green-500 to-teal-500 rounded-full" style="width:95%"></div>
-                            </div>
-                        </div>
-                        <div class="mt-4 p-3 bg-green-500/10 border border-green-500/30 rounded-xl">
-                            <p class="text-xs text-green-400 font-medium">&#10003; Ready for 42 matching roles</p>
-                        </div>
-                    </div>
-
-                    <div class="mockup-card rounded-2xl p-5 w-72 absolute bottom-8 left-4 float-anim-delay shadow-2xl z-20">
-                        <div class="flex items-center gap-2 mb-3">
-                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                            <span class="text-xs text-green-400 font-medium">Interview Coach &middot; Live</span>
-                        </div>
-                        <p class="text-xs text-slate-400 mb-2">Question 3 of 10:</p>
-                        <p class="text-sm text-white font-medium mb-3">"Tell me about a time you overcame a major obstacle at work."</p>
-                        <div class="flex items-center gap-2 p-2 bg-brandViolet/20 rounded-lg">
-                            <svg class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                            <p class="text-xs text-violet-300">AI: Strong STAR structure. Add quantified outcome.</p>
-                        </div>
-                    </div>
-
-                    <div class="mockup-card rounded-2xl p-4 w-52 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 shadow-2xl">
-                        <div class="text-center">
-                            <p class="text-xs text-slate-400 mb-1">Salary Insight</p>
-                            <p class="font-heading font-bold text-2xl text-brandAmber">$127K</p>
-                            <p class="text-xs text-slate-400">Median &middot; Product Manager</p>
-                            <div class="mt-2 text-xs text-green-400 font-medium">&#8593; 18% above market</div>
-                        </div>
-                    </div>
+                <div class="card-metric">
+                    <span>Keywords: 38/40</span>
+                </div>
+                <div class="card-metric-bar" style="margin-top: 0.75rem;">
+                    <div class="card-metric-fill" style="width: 95%;"></div>
+                </div>
+            </div>
+            <div class="hero-card card-2">
+                <div class="card-title">Interview Coach</div>
+                <div class="card-value">Q3/10</div>
+                <div class="card-description">Practice Session</div>
+                <div class="card-metric">
+                    <span>✓ STAR Method</span>
+                </div>
+                <div class="card-metric">
+                    <span>AI Feedback Active</span>
+                </div>
+            </div>
+            <div class="hero-card card-3">
+                <div class="card-title">Salary Insight</div>
+                <div class="card-value">$127K</div>
+                <div class="card-description">Median Salary</div>
+                <div class="card-metric">
+                    <span>Product Manager Role</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- STATS STRIP -->
-    <section class="border-y border-darkBorder bg-darkCard/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="stat-number font-heading text-4xl font-extrabold mb-1">12K+</div>
-                    <div class="text-slate-400 text-sm">Active Job Seekers</div>
-                </div>
-                <div>
-                    <div class="stat-number font-heading text-4xl font-extrabold mb-1">89%</div>
-                    <div class="text-slate-400 text-sm">Interview Success Rate</div>
-                </div>
-                <div>
-                    <div class="stat-number font-heading text-4xl font-extrabold mb-1">3.2x</div>
-                    <div class="text-slate-400 text-sm">More Callbacks</div>
-                </div>
-                <div>
-                    <div class="stat-number font-heading text-4xl font-extrabold mb-1">$9.99</div>
-                    <div class="text-slate-400 text-sm">All-Access Monthly</div>
-                </div>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2>Your Complete Career Arsenal</h2>
+            <p>Six powerful AI tools to transform your job search and negotiate better offers</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon" style="background: linear-gradient(135deg, var(--accent-orange), #FF8855);">🤖</div>
+                <h3>Resume Builder AI</h3>
+                <p>Create the perfect resume in minutes with AI-powered optimization</p>
+                <ul class="feature-bullets">
+                    <li>ATS keyword optimization</li>
+                    <li>Industry-specific templates</li>
+                    <li>Real-time score feedback</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background: linear-gradient(135deg, var(--accent-teal), #5FE3D0);">🎤</div>
+                <h3>Interview Coach</h3>
+                <p>Practice and master every type of interview question</p>
+                <ul class="feature-bullets">
+                    <li>STAR method coaching</li>
+                    <li>Role-specific questions</li>
+                    <li>Behavioral & technical prep</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background: linear-gradient(135deg, var(--accent-yellow), #FFE066);">⚙️</div>
+                <h3>Job Search Automation</h3>
+                <p>Find your ideal role and apply to the right jobs faster</p>
+                <ul class="feature-bullets">
+                    <li>Smart job matching</li>
+                    <li>Salary & culture fit analysis</li>
+                    <li>Application tracking</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background: linear-gradient(135deg, var(--accent-red), #FF6666);">💰</div>
+                <h3>Salary Negotiator</h3>
+                <p>Know your worth and negotiate with confidence</p>
+                <ul class="feature-bullets">
+                    <li>Market salary benchmarks</li>
+                    <li>Negotiation scripts</li>
+                    <li>Total comp calculator</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background: linear-gradient(135deg, var(--accent-purple), #8080FF);">🔗</div>
+                <h3>LinkedIn Optimizer</h3>
+                <p>Make your profile stand out to recruiters</p>
+                <ul class="feature-bullets">
+                    <li>Profile headline rewriting</li>
+                    <li>Keyword injection</li>
+                    <li>Engagement strategy</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));">🗺️</div>
+                <h3>Career Roadmap</h3>
+                <p>Get a personalized plan to reach your goals</p>
+                <ul class="feature-bullets">
+                    <li>Personalized 90-day plan</li>
+                    <li>Skill gap analysis</li>
+                    <li>Progress tracking</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- FEATURES -->
-    <section id="features" class="py-24 bg-darkBg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center gap-2 bg-brandBlue/20 border border-brandBlue/40 rounded-full px-4 py-2 text-sm font-medium text-blue-300 mb-4">Everything You Need to Win</div>
-                <h2 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mb-4">Your Complete<br><span class="gradient-text">Career Preparation System</span></h2>
-                <p class="text-slate-400 text-lg max-w-2xl mx-auto">Six powerful AI tools working together to get you hired faster &mdash; all for less than a Netflix subscription.</p>
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-header">
+            <h2>Your Path to Success</h2>
+            <p>Four simple steps to land your dream job</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Create Your Profile</h3>
+                <p>Share your background, skills, and career goals in minutes</p>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <div class="card-hover bg-darkCard border border-darkBorder rounded-2xl p-7">
-                    <div class="w-12 h-12 rounded-xl feature-icon flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                    </div>
-                    <h3 class="font-heading text-xl font-bold text-white mb-3">Resume Builder AI</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Generate ATS-optimized resumes tailored to any job description in seconds. Beat the bots, impress the humans.</p>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-brandViolet rounded-full"></span>ATS keyword optimization</li>
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-brandViolet rounded-full"></span>Industry-specific templates</li>
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-brandViolet rounded-full"></span>Real-time score feedback</li>
-                    </ul>
-                </div>
-
-                <div class="card-hover bg-darkCard border border-darkBorder rounded-2xl p-7">
-                    <div class="w-12 h-12 rounded-xl feature-icon flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
-                    </div>
-                    <h3 class="font-heading text-xl font-bold text-white mb-3">Interview Coach</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Practice with an AI that thinks like your interviewer. Get real-time feedback on your answers, tone, and confidence.</p>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-brandBlue rounded-full"></span>STAR method coaching</li>
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-brandBlue rounded-full"></span>Role-specific questions</li>
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-brandBlue rounded-full"></span>Behavioral &amp; technical prep</li>
-                    </ul>
-                </div>
-
-                <div class="card-hover bg-darkCard border border-darkBorder rounded-2xl p-7">
-                    <div class="w-12 h-12 rounded-xl feature-icon flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    </div>
-                    <h3 class="font-heading text-xl font-bold text-white mb-3">Job Search Automation</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Let AI find and match you to the right roles. Stop manually hunting &mdash; surface the best-fit opportunities automatically.</p>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-brandAmber rounded-full"></span>Smart job matching</li>
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-brandAmber rounded-full"></span>Salary &amp; culture fit analysis</li>
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-brandAmber rounded-full"></span>Application tracking</li>
-                    </ul>
-                </div>
-
-                <div class="card-hover bg-darkCard border border-darkBorder rounded-2xl p-7">
-                    <div class="w-12 h-12 rounded-xl feature-icon flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3 class="font-heading text-xl font-bold text-white mb-3">Salary Negotiator</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Know your worth and negotiate with confidence. Get real-time market data and proven scripts to maximize your offer.</p>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Market salary benchmarks</li>
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Negotiation scripts</li>
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Total comp calculator</li>
-                    </ul>
-                </div>
-
-                <div class="card-hover bg-darkCard border border-darkBorder rounded-2xl p-7">
-                    <div class="w-12 h-12 rounded-xl feature-icon flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    </div>
-                    <h3 class="font-heading text-xl font-bold text-white mb-3">LinkedIn Optimizer</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Transform your LinkedIn profile into a recruiter magnet. AI-powered rewrites that make you impossible to ignore.</p>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-sky-400 rounded-full"></span>Profile headline rewriting</li>
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-sky-400 rounded-full"></span>Keyword injection</li>
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-sky-400 rounded-full"></span>Engagement strategy</li>
-                    </ul>
-                </div>
-
-                <div class="card-hover bg-darkCard border border-darkBorder rounded-2xl p-7">
-                    <div class="w-12 h-12 rounded-xl feature-icon flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-                    </div>
-                    <h3 class="font-heading text-xl font-bold text-white mb-3">Career Roadmap</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Build a personalized 90-day career action plan. Know exactly what to do next &mdash; no more wasted effort.</p>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>Personalized 90-day plan</li>
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>Skill gap analysis</li>
-                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>Progress tracking</li>
-                    </ul>
-                </div>
-
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>AI Builds Your Arsenal</h3>
+                <p>Our AI generates optimized resume, interview practice, and career plan</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Practice & Perfect</h3>
+                <p>Interview coach with AI feedback and resume optimization in real-time</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Land the Offer</h3>
+                <p>With our negotiation tools, maximize your salary and benefits</p>
             </div>
         </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section id="how-it-works" class="py-24 bg-darkCard/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center gap-2 bg-brandAmber/20 border border-brandAmber/40 rounded-full px-4 py-2 text-sm font-medium text-amber-300 mb-4">Simple. Fast. Effective.</div>
-                <h2 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mb-4">From Signup to<br><span class="gradient-text">Interview-Ready in 24 Hours</span></h2>
-                <p class="text-slate-400 text-lg max-w-2xl mx-auto">No complex setup. Sign up, tell us your target role, and let the AI do the heavy lifting.</p>
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <h2>Loved by Job Seekers</h2>
+            <p>See how Resume SuperHero changed careers</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">JM</div>
+                    <div>
+                        <h4>Jessica M.</h4>
+                        <p class="testimonial-role">Product Manager → FAANG</p>
+                    </div>
+                </div>
+                <div class="testimonial-rating">★★★★★ 5 stars</div>
+                <p class="testimonial-quote">"Resume SuperHero's AI optimization got my resume past 10+ ATS systems. Landed interviews at Google and Meta in 2 weeks. Negotiated $165K total comp!"</p>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-20 h-20 rounded-2xl btn-primary flex items-center justify-center mx-auto mb-5">
-                        <span class="font-heading text-3xl font-extrabold text-white">1</span>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">DK</div>
+                    <div>
+                        <h4>David K.</h4>
+                        <p class="testimonial-role">Software Engineer → Startup</p>
                     </div>
-                    <h3 class="font-heading text-lg font-bold text-white mb-2">Create Your Profile</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Tell us your experience, target role, and career goals. Takes under 3 minutes.</p>
                 </div>
-                <div class="text-center">
-                    <div class="w-20 h-20 rounded-2xl btn-primary flex items-center justify-center mx-auto mb-5">
-                        <span class="font-heading text-3xl font-extrabold text-white">2</span>
+                <div class="testimonial-rating">★★★★★ 5 stars</div>
+                <p class="testimonial-quote">"The interview coach is insane. Practiced 50+ questions with real AI feedback. Aced my behavioral and technical interviews. Got the job with $148K offer!"</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">ST</div>
+                    <div>
+                        <h4>Sara T.</h4>
+                        <p class="testimonial-role">Marketing Director → Series B</p>
                     </div>
-                    <h3 class="font-heading text-lg font-bold text-white mb-2">AI Builds Your Arsenal</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Your resume, LinkedIn, and interview prep materials are generated and optimized instantly.</p>
                 </div>
-                <div class="text-center">
-                    <div class="w-20 h-20 rounded-2xl btn-primary flex items-center justify-center mx-auto mb-5">
-                        <span class="font-heading text-3xl font-extrabold text-white">3</span>
-                    </div>
-                    <h3 class="font-heading text-lg font-bold text-white mb-2">Practice &amp; Perfect</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Run unlimited mock interviews. Get scored feedback until you nail every question.</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-5" style="background:#fbbf24; box-shadow: 0 4px 20px rgba(251,191,36,0.4);">
-                        <span class="font-heading text-3xl font-extrabold" style="color:#0f172a">4</span>
-                    </div>
-                    <h3 class="font-heading text-lg font-bold text-white mb-2">Land the Offer</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Apply with confidence, negotiate your best salary, and accept the role you deserve.</p>
-                </div>
+                <div class="testimonial-rating">★★★★★ 5 stars</div>
+                <p class="testimonial-quote">"The salary negotiator helped me benchmark my worth and negotiate an extra $15K. Plus, the LinkedIn optimizer got me 3 recruiter outreach messages daily!"</p>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="py-24 bg-darkBg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mb-4">Real People.<br><span class="gradient-text">Real Offers.</span></h2>
-                <p class="text-slate-400 text-lg">Join thousands who've transformed their job search with Resume SuperHero.</p>
+    <!-- Referral Section -->
+    <section class="referral">
+        <h2>Earn 80% Commission</h2>
+        <div class="referral-branding">with Ai-Ai</div>
+        <p>Earn 80% of every first payment — Unlimited. You send your referral code to the world, and watch the money flow. No caps. No approval process. Just post us in feeds with your referral code or set Ai-Ai to automatically join.</p>
+        <div class="referral-stats">
+            <div class="stat-box">
+                <div class="stat-number">80%</div>
+                <div class="stat-label">First Payment</div>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="stat-box">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Unlimited Referrals</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">$0</div>
+                <div class="stat-label">To Join</div>
+            </div>
+        </div>
+        <button class="btn-primary" style="margin-top: var(--spacing-lg);">Become a Partner →</button>
+    </section>
 
-                <div class="bg-darkCard border border-darkBorder rounded-2xl p-7 flex flex-col">
-                    <div class="flex items-center gap-1 mb-4"><span class="text-brandAmber text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-                    <p class="text-slate-300 text-sm leading-relaxed flex-1 mb-5">"After 4 months of rejections, I tried Resume SuperHero. Within 2 weeks my resume was getting callbacks and I landed 3 interviews. Got an offer $22K above what I expected. The salary negotiation coach was a game-changer."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm">JM</div>
-                        <div>
-                            <div class="text-white font-semibold text-sm">Jessica M.</div>
-                            <div class="text-slate-400 text-xs">Product Manager &rarr; FAANG &middot; $165K</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-darkCard border border-darkBorder rounded-2xl p-7 flex flex-col">
-                    <div class="flex items-center gap-1 mb-4"><span class="text-brandAmber text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-                    <p class="text-slate-300 text-sm leading-relaxed flex-1 mb-5">"I was terrified of interviews. The AI Coach let me practice 50+ times until I felt bulletproof. My actual interview felt easy. I got the offer on the spot. This tool paid for itself 500x over on day one."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white font-bold text-sm">DK</div>
-                        <div>
-                            <div class="text-white font-semibold text-sm">David K.</div>
-                            <div class="text-slate-400 text-xs">Software Engineer &rarr; Startup &middot; $148K</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-darkCard border border-darkBorder rounded-2xl p-7 flex flex-col">
-                    <div class="flex items-center gap-1 mb-4"><span class="text-brandAmber text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-                    <p class="text-slate-300 text-sm leading-relaxed flex-1 mb-5">"The LinkedIn optimizer turned my dormant profile into an inbound machine. I went from zero recruiter messages to 12 in one week. Ended up with 4 competing offers. Best $9.99 I've ever spent."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center text-white font-bold text-sm">ST</div>
-                        <div>
-                            <div class="text-white font-semibold text-sm">Sara T.</div>
-                            <div class="text-slate-400 text-xs">Marketing Director &rarr; Series B &middot; $135K</div>
-                        </div>
-                    </div>
-                </div>
-
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2>Simple, Transparent Pricing</h2>
+            <p>One plan, unlimited tools</p>
+        </div>
+        <div class="pricing-card">
+            <div class="pricing-badge">BEST VALUE</div>
+            <div class="pricing-title">All-Access Pass</div>
+            <div class="pricing-price">$9.99<span style="font-size: 1.5rem; color: var(--text-muted);">/mo</span></div>
+            <div class="pricing-period">Billed monthly. Cancel anytime.</div>
+            <ul class="pricing-features" style="list-style: none;">
+                <li>Resume Builder AI with ATS optimization</li>
+                <li>Interview Coach with STAR method training</li>
+                <li>Job Search Automation & matching</li>
+                <li>Salary Negotiator & benchmarks</li>
+                <li>LinkedIn Profile Optimizer</li>
+                <li>Career Roadmap & skill tracking</li>
+            </ul>
+            <div class="pricing-cta">
+                <a href="https://buy.stripe.com/test_cNa28H2Yp4d50XS3cz" class="btn-primary" style="display: inline-block;">Subscribe Now — $9.99/mo →</a>
+            </div>
+            <div class="pricing-note">
+                <strong>1 month Replit free trial</strong> after onboarding
+            </div>
+            <div class="trust-badge">
+                🔒 Secure checkout powered by Stripe · 100% encrypted
             </div>
         </div>
     </section>
 
-    <!-- PRICING -->
-    <section id="pricing" class="py-24 bg-darkBg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <div class="inline-flex items-center gap-2 bg-brandViolet/20 border border-brandViolet/40 rounded-full px-4 py-2 text-sm font-medium text-violet-300 mb-4">Simple, Transparent Pricing</div>
-                <h2 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mb-4">One Price.<br><span class="gradient-text">Everything Included.</span></h2>
-                <p class="text-slate-400 text-lg">Cancel anytime. No contracts. No hidden fees.</p>
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about Resume SuperHero</p>
+        </div>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>How is Resume SuperHero different from other resume tools?</span>
+                <span class="faq-toggle">▼</span>
             </div>
-            <div class="max-w-md mx-auto">
-                <div class="pricing-card rounded-2xl p-8 relative overflow-hidden">
-                    <div class="absolute top-5 right-5 bg-brandAmber text-xs font-bold px-3 py-1 rounded-full" style="color:#0f172a">BEST VALUE</div>
-                    <div class="mb-6">
-                        <h3 class="font-heading text-2xl font-bold text-white mb-1">All-Access Pass</h3>
-                        <p class="text-slate-400 text-sm">Everything you need to land your next job, at a price that won't break the bank.</p>
-                    </div>
-                    <div class="mb-6">
-                        <div class="flex items-end gap-2">
-                            <span class="font-heading text-6xl font-extrabold text-white">$9</span>
-                            <div class="pb-2">
-                                <span class="font-heading text-3xl font-bold text-white">.99</span>
-                                <span class="text-slate-400 text-sm block">/month</span>
-                            </div>
-                        </div>
-                        <p class="text-slate-400 text-sm mt-1">Cancel anytime &middot; No contracts</p>
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-3 text-sm text-slate-200">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Unlimited Resume Building &amp; ATS Optimization
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-slate-200">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            AI Interview Coach (Unlimited Sessions)
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-slate-200">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Job Search Automation &amp; Smart Matching
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-slate-200">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Salary Negotiation Scripts &amp; Market Data
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-slate-200">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            LinkedIn Profile Optimizer
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-slate-200">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Personalized 90-Day Career Roadmap
-                        </li>
-                        <li class="flex items-center gap-3 text-sm text-slate-200">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Priority Email Support
-                        </li>
-                    </ul>
-                    <a href="https://buy.stripe.com/6oUbJ0fvAaQj8ca7nWfbq00" id="checkout-btn" class="btn-primary w-full block text-center py-4 rounded-xl text-base font-bold text-white">Subscribe Now &mdash; $9.99/mo &rarr;</a>
-                    <p class="text-center text-slate-500 text-xs mt-3">Instant access. Cancel anytime.</p>
-                </div>
+            <div class="faq-answer">
+                <p>Unlike traditional resume builders, Resume SuperHero uses advanced AI to optimize every word for ATS systems while maintaining human readability. Our AI learns from 50,000+ successful resumes and automatically suggests industry-specific keywords, better action verbs, and format improvements. Plus, you get interview coaching and salary negotiation tools all in one platform.</p>
             </div>
-            <div class="mt-10 text-center">
-                <div class="inline-flex items-center gap-3 bg-darkCard border border-darkBorder rounded-xl px-6 py-4">
-                    <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    <span class="text-slate-300 text-sm">Secure checkout powered by Stripe &mdash; cancel anytime with one click.</span>
-                </div>
+        </div>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>Does the AI work for my specific industry?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Absolutely! Resume SuperHero covers 200+ industries and 5,000+ job titles. The AI is trained on successful resumes from tech, finance, healthcare, marketing, sales, operations, and more. You'll select your industry and role during onboarding, and all recommendations will be tailored specifically for your field.</p>
+            </div>
+        </div>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>Can I cancel anytime?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes! There are no contracts or long-term commitments. You can cancel your subscription anytime through your account settings. No questions asked. If you cancel before your next billing date, you'll keep access through the end of your current billing cycle.</p>
+            </div>
+        </div>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>How quickly will I see results?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Most users see results within 2-4 weeks. You'll get interview invitations faster thanks to ATS optimization (typically within 1 week of uploading your optimized resume). Career advancement and salary increases happen as you practice and interview more. The earlier you start, the sooner you land your dream job!</p>
+            </div>
+        </div>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>Is my data kept private?</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Your privacy is our top priority. All data is encrypted end-to-end and stored on secure, GDPR-compliant servers. We never share your resume, interview recordings, or personal information with third parties. You own all your content and can delete it anytime. We're transparent about how we use data.</p>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="py-24 bg-darkCard/30">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mb-4">Got Questions?</h2>
-                <p class="text-slate-400 text-lg">Everything you need to know about Resume SuperHero.</p>
-            </div>
-            <div class="space-y-4">
-
-                <div class="faq-item bg-darkCard border border-darkBorder rounded-2xl overflow-hidden">
-                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
-                        <span class="font-heading font-semibold text-white text-base pr-4">How is Resume SuperHero different from other resume tools?</span>
-                        <svg class="faq-icon w-5 h-5 text-brandViolet flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="px-6 pb-6">
-                            <p class="text-slate-400 text-sm leading-relaxed">Most tools just format your resume. Resume SuperHero is a complete career preparation system &mdash; we optimize your resume AND coach your interviews AND help you negotiate salary AND build your LinkedIn AND map your career path. Six tools in one, at a fraction of the cost of a human career coach.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item bg-darkCard border border-darkBorder rounded-2xl overflow-hidden">
-                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
-                        <span class="font-heading font-semibold text-white text-base pr-4">Does the AI work for my specific industry?</span>
-                        <svg class="faq-icon w-5 h-5 text-brandViolet flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="px-6 pb-6">
-                            <p class="text-slate-400 text-sm leading-relaxed">Yes. Resume SuperHero is trained on millions of job postings and hiring outcomes across 50+ industries &mdash; from tech to finance to healthcare to marketing. Tell us your target role and the AI tailors every output specifically to what hiring managers in your field want to see.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item bg-darkCard border border-darkBorder rounded-2xl overflow-hidden">
-                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
-                        <span class="font-heading font-semibold text-white text-base pr-4">Can I cancel anytime? Is there a contract?</span>
-                        <svg class="faq-icon w-5 h-5 text-brandViolet flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="px-6 pb-6">
-                            <p class="text-slate-400 text-sm leading-relaxed">Absolutely. Cancel anytime with one click &mdash; no questions asked, no cancellation fees. We're month-to-month only. Most members get hired in 4&ndash;8 weeks and cancel once they've landed their role. That's a win we're proud of.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item bg-darkCard border border-darkBorder rounded-2xl overflow-hidden">
-                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
-                        <span class="font-heading font-semibold text-white text-base pr-4">How quickly will I see results?</span>
-                        <svg class="faq-icon w-5 h-5 text-brandViolet flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="px-6 pb-6">
-                            <p class="text-slate-400 text-sm leading-relaxed">Most members see a dramatic improvement in resume quality and callback rates within 24 hours of signing up. Your AI-optimized resume, interview prep, and LinkedIn profile are generated instantly. Members typically land their first interview within 1&ndash;2 weeks. If you're not satisfied, you can cancel anytime with no hassle.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item bg-darkCard border border-darkBorder rounded-2xl overflow-hidden">
-                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
-                        <span class="font-heading font-semibold text-white text-base pr-4">Is my resume and personal data kept private?</span>
-                        <svg class="faq-icon w-5 h-5 text-brandViolet flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="px-6 pb-6">
-                            <p class="text-slate-400 text-sm leading-relaxed">100% private. We never share, sell, or use your data for anything other than powering your Resume SuperHero experience. All data is encrypted in transit and at rest. Delete your account and all data at any time.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <h2>Your Dream Job Is One Click Away</h2>
+        <div class="final-cta-buttons">
+            <a href="https://buy.stripe.com/test_cNa28H2Yp4d50XS3cz" class="btn-primary">Subscribe Now — $9.99/mo</a>
+            <button class="btn-secondary" onclick="scrollToSection('features')">See All Features</button>
         </div>
     </section>
 
-
-    <!-- DARK CTA -->
-    <section class="py-24 bg-darkBg relative overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.2) 0%, transparent 70%);"></div>
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h2 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6">Your Dream Job Is<br><span class="gradient-text">One Click Away.</span></h2>
-            <p class="text-slate-300 text-xl mb-10 max-w-2xl mx-auto">Stop sending resumes into the void. Join 12,000+ professionals who use Resume SuperHero to land interviews, nail them, and negotiate their best offer ever.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://buy.stripe.com/6oUbJ0fvAaQj8ca7nWfbq00" class="btn-primary px-10 py-5 rounded-xl text-lg font-bold text-white text-center inline-block">Subscribe Now &mdash; $9.99/mo &rarr;</a>
-                <a href="#features" class="px-10 py-5 rounded-xl text-lg font-semibold text-white text-center border border-darkBorder hover:border-brandViolet/60 transition-colors inline-block">See All Features</a>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Resume SuperHero</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">AI-powered career tools to land your dream job faster.</p>
             </div>
-            <p class="text-slate-500 text-sm mt-6">Instant access &middot; Cancel anytime</p>
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#cookies">Cookie Policy</a></li>
+                </ul>
+            </div>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-darkCard border-t border-darkBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-                <div class="lg:col-span-1">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-9 h-9 rounded-xl btn-primary flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                        </div>
-                        <span class="font-heading font-bold text-xl text-white">Resume<span class="gradient-text">SuperHero</span></span>
-                    </div>
-                    <p class="text-slate-400 text-sm leading-relaxed">AI-powered career preparation for ambitious professionals.</p>
-                </div>
-                <div>
-                    <h4 class="font-heading font-semibold text-white text-sm mb-4">Product</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#features" class="text-slate-400 hover:text-white text-sm transition-colors">Features</a></li>
-                        <li><a href="#pricing" class="text-slate-400 hover:text-white text-sm transition-colors">Pricing</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Resume Builder</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Interview Coach</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-heading font-semibold text-white text-sm mb-4">Company</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">About</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Blog</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Careers</a></li>
-                        <li><a href="mailto:partners@theaisuperheroes.com" class="text-slate-400 hover:text-white text-sm transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-heading font-semibold text-white text-sm mb-4">Legal</h4>
-                    <ul class="space-y-2">
-                        <li><a href="privacy.html" class="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="text-slate-400 hover:text-white text-sm transition-colors">Terms of Service</a></li>
-                        <li><a href="cookies.html" class="text-slate-400 hover:text-white text-sm transition-colors">Cookie Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-darkBorder pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-slate-500 text-sm">&copy; 2026 TheAISuperHeroes. All rights reserved. Resume SuperHero is a TheAISuperHeroes company.</p>
-                <p class="text-slate-500 text-sm"><a href="https://theaisuperheroes.com" class="hover:text-slate-300 transition-colors">Powered By TheAISuperHeroes</a> &middot; $9.99/month &middot; Cancel anytime</p>
-            </div>
+        <div class="footer-bottom">
+            <p style="margin-bottom: 0.5rem;">© 2026 TheAISuperHeroes. All rights reserved.</p>
+            <p>Powered By TheAISuperHeroes · $9.99/month · Cancel anytime</p>
         </div>
     </footer>
 
+    <!-- Mobile CTA Bar -->
+    <div class="mobile-cta">
+        <div class="mobile-cta-content">
+            <span class="mobile-cta-text">⚡ All-Access · <span class="highlight">$9.99/mo</span></span>
+            <a href="https://buy.stripe.com/test_cNa28H2Yp4d50XS3cz" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Get Started</a>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign In</h2>
+                <button class="close-btn" onclick="closeLoginModal()">&times;</button>
+            </div>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Sign In</button>
+            </form>
+            <p style="text-align: center; margin-top: var(--spacing-md); color: var(--text-muted); font-size: 0.9rem;">
+                Don't have an account? <span onclick="redirectToSignup()" style="color: var(--accent-orange); cursor: pointer; font-weight: 600;">Sign up</span>
+            </p>
+        </div>
+    </div>
+
     <script>
-        function toggleFaq(btn) {
-            const item = btn.closest('.faq-item');
-            const isActive = item.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
-            if (!isActive) item.classList.add('active');
-        }
-        window.addEventListener('scroll', () => {
-            const scrollY = window.pageYOffset;
-            document.querySelectorAll('section[id]').forEach(section => {
-                const top = section.offsetTop - 100;
-                const id = section.getAttribute('id');
-                const link = document.querySelector('nav a[href="#' + id + '"]');
-                if (link) {
-                    if (scrollY >= top && scrollY < top + section.offsetHeight) {
-                        link.classList.add('text-white'); link.classList.remove('text-slate-300');
-                    } else {
-                        link.classList.remove('text-white'); link.classList.add('text-slate-300');
-                    }
-                }
-            });
+        // Analytics & GTM initialization
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVV7C7Y5YY');
+
+        // Track page view
+        gtag('event', 'page_view', {
+            'page_title': document.title,
+            'page_path': window.location.pathname
         });
-    
-        // Login Modal Functions
+
+        // Scroll to section helper
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                gtag('event', 'scroll_to', {
+                    'section': sectionId
+                });
+            }
+        }
+
+        // Login modal functions
         function openLoginModal() {
-            document.getElementById('loginModal').classList.remove('hidden');
-            document.getElementById('loginModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            document.getElementById('loginModal').classList.add('show');
+            gtag('event', 'open_login');
         }
 
         function closeLoginModal() {
-            document.getElementById('loginModal').classList.add('hidden');
-            document.getElementById('loginModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-            document.getElementById('loginForm').reset();
+            document.getElementById('loginModal').classList.remove('show');
         }
 
         function handleLogin(event) {
             event.preventDefault();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
+            const email = document.getElementById('email').value;
 
-            // Simple validation - ensure both fields are not empty
-            if (!email || !password) {
-                alert('Please fill in all fields');
-                return;
-            }
+            gtag('event', 'login_attempt', {
+                'email': email
+            });
 
-            // Redirect to dashboard on successful login
+            // Redirect to dashboard
             window.location.href = 'dashboard.html';
         }
 
-        // Close modal when pressing Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                const modal = document.getElementById('loginModal');
-                if (modal && !modal.classList.contains('hidden')) {
-                    closeLoginModal();
-                }
+        function redirectToSignup() {
+            gtag('event', 'redirect_signup');
+            window.location.href = 'signup.html';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target == modal) {
+                closeLoginModal();
             }
+        }
+
+        // FAQ accordion
+        function toggleFAQ(element) {
+            element.classList.toggle('open');
+            gtag('event', 'toggle_faq');
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks) {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            }
+        }
+
+        // Track CTA clicks
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Track if it's a real link vs button
+                if (this.href && this.href.includes('stripe')) {
+                    gtag('event', 'click_checkout', {
+                        'button_text': this.textContent
+                    });
+                } else if (this.textContent.includes('Started') || this.textContent.includes('Subscribe')) {
+                    gtag('event', 'click_cta', {
+                        'cta_type': 'primary'
+                    });
+                }
+            });
+        });
+
+        // Track feature card views
+        document.querySelectorAll('.feature-card').forEach((card, index) => {
+            card.addEventListener('mouseenter', function() {
+                gtag('event', 'view_feature', {
+                    'feature_number': index + 1,
+                    'feature_title': card.querySelector('h3').textContent
+                });
+            });
+        });
+
+        // Track testimonial views
+        document.querySelectorAll('.testimonial-card').forEach((card, index) => {
+            const name = card.querySelector('h4').textContent;
+            card.addEventListener('mouseenter', function() {
+                gtag('event', 'view_testimonial', {
+                    'testimonial_number': index + 1,
+                    'customer_name': name
+                });
+            });
+        });
+
+        // Track time on page
+        let pageStartTime = Date.now();
+        window.addEventListener('beforeunload', function() {
+            let pageEndTime = Date.now();
+            let timeSpent = Math.round((pageEndTime - pageStartTime) / 1000);
+            gtag('event', 'page_exit', {
+                'time_spent_seconds': timeSpent
+            });
+        });
+
+        // Smooth scroll behavior for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '#login') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Track form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            gtag('event', 'form_submit', {
+                'form_type': 'login'
+            });
+        });
+
+        // Log when user scrolls to specific sections
+        const observerOptions = {
+            threshold: 0.3
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    gtag('event', 'view_section', {
+                        'section': entry.target.id
+                    });
+                }
+            });
+        }, observerOptions);
+
+        ['features', 'how-it-works', 'testimonials', 'pricing', 'faq'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
         });
     </script>
-
-    <!-- LOGIN MODAL -->
-    <div id="loginModal" class="fixed inset-0 z-[60] hidden">
-        <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeLoginModal()"></div>
-        
-        <!-- Modal Content -->
-        <div class="relative z-10 flex items-center justify-center min-h-screen px-4 py-8">
-            <div class="bg-darkCard border border-darkBorder rounded-2xl shadow-2xl w-full max-w-md animate-modal-fade">
-                <!-- Close Button -->
-                <button onclick="closeLoginModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-                
-                <!-- Modal Header -->
-                <div class="px-6 sm:px-8 pt-8 pb-6 border-b border-darkBorder">
-                    <h2 class="font-heading font-bold text-2xl text-white">Welcome Back</h2>
-                    <p class="text-slate-400 text-sm mt-2">Sign in to your Resume SuperHero account</p>
-                </div>
-                
-                <!-- Modal Body -->
-                <form id="loginForm" class="px-6 sm:px-8 py-6 space-y-4" onsubmit="handleLogin(event)">
-                    <!-- Email Input -->
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-slate-200 mb-2">Email Address</label>
-                        <input type="email" id="email" name="email" required placeholder="you@example.com" class="w-full px-4 py-3 bg-darkBg border border-darkBorder rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/20 transition-all"/>
-                    </div>
-                    
-                    <!-- Password Input -->
-                    <div>
-                        <label for="password" class="block text-sm font-medium text-slate-200 mb-2">Password</label>
-                        <input type="password" id="password" name="password" required placeholder="Enter your password" class="w-full px-4 py-3 bg-darkBg border border-darkBorder rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/20 transition-all"/>
-                    </div>
-                    
-                    <!-- Forgot Password -->
-                    <div class="text-right">
-                        <a href="#" class="text-sm text-brandBlue hover:text-brandViolet transition-colors font-medium">Forgot Password?</a>
-                    </div>
-                    
-                    <!-- Login Button -->
-                    <button type="submit" class="w-full btn-primary px-6 py-3 rounded-xl text-base font-bold text-white mt-6 transition-all">
-                        Log In
-                    </button>
-                </form>
-                
-                <!-- Modal Footer -->
-                <div class="px-6 sm:px-8 pb-8 border-t border-darkBorder pt-6">
-                    <p class="text-sm text-slate-400">
-                        Don't have an account?
-                        <a href="https://buy.stripe.com/6oUbJ0fvAaQj8ca7nWfbq00" class="text-brandBlue hover:text-brandViolet font-semibold transition-colors">Subscribe for $9.99/mo</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
