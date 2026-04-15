@@ -267,7 +267,7 @@
 
 <script>
 // AUTH
-function doLogin(){const u=document.getElementById('loginUser').value,p=document.getElementById('loginPass').value;if(u==='jarvisadmin'&&p==='Jarvissuperhero1985'){document.getElementById('loginScreen').style.display='none';document.getElementById('adminApp').style.display='flex';initAdmin()}else{document.getElementById('loginError').classList.remove('hidden');setTimeout(()=>document.getElementById('loginError').classList.add('hidden'),3000)}}
+function doLogin(){const u=document.getElementById('loginUser').value,p=document.getElementById('loginPass').value;if(u==='Jarvis.Stark1985'&&p==='Superhero2026$'){document.getElementById('loginScreen').style.display='none';document.getElementById('adminApp').style.display='flex';initAdmin()}else{document.getElementById('loginError').classList.remove('hidden');setTimeout(()=>document.getElementById('loginError').classList.add('hidden'),3000)}}
 function doLogout(){if(confirm('Sign out?')){document.getElementById('adminApp').style.display='none';document.getElementById('loginScreen').style.display='flex';document.getElementById('loginUser').value='';document.getElementById('loginPass').value=''}}
 
 // NAV
